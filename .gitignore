@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+pilot_results.json
+.venv/
+*.egg-info/
