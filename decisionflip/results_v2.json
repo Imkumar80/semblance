@@ -1,0 +1,73 @@
+{
+  "model": "BAAI/bge-small-en-v1.5",
+  "control_mean": 0.5385897680974351,
+  "categories": {
+    "numerical_threshold": {
+      "n": 30,
+      "flip_cos_mean": 0.9316163617659611,
+      "para_cos_mean": 0.9526065829516892,
+      "flip_percentile_mean": 0.992617787232639,
+      "margin_fail": 0,
+      "cos_auroc": 0.8288888888888889,
+      "decision_acc": 0.8444444444444444,
+      "flip_consistency": 0.5333333333333333
+    },
+    "scope": {
+      "n": 30,
+      "flip_cos_mean": 0.8933334951486395,
+      "para_cos_mean": 0.8829753493953862,
+      "flip_percentile_mean": 0.9880030453448552,
+      "margin_fail": 21,
+      "cos_auroc": 0.37777777777777777,
+      "decision_acc": 0.7888888888888889,
+      "flip_consistency": 0.5333333333333333
+    },
+    "permission": {
+      "n": 30,
+      "flip_cos_mean": 0.8439520415069419,
+      "para_cos_mean": 0.9755826802669408,
+      "flip_percentile_mean": 0.978933524629364,
+      "margin_fail": 0,
+      "cos_auroc": 0.9988888888888889,
+      "decision_acc": 1.0,
+      "flip_consistency": 1.0
+    },
+    "action": {
+      "n": 30,
+      "flip_cos_mean": 0.8602901751240861,
+      "para_cos_mean": 0.9582630053658827,
+      "flip_percentile_mean": 0.9833638417520078,
+      "margin_fail": 0,
+      "cos_auroc": 0.9988888888888889,
+      "decision_acc": 1.0,
+      "flip_consistency": 1.0
+    },
+    "tool_function": {
+      "n": 21,
+      "flip_cos_mean": 0.9403809828290144,
+      "para_cos_mean": 0.9677879491599997,
+      "flip_percentile_mean": 0.9937789525678509,
+      "margin_fail": 0,
+      "cos_auroc": 0.9569160997732427,
+      "decision_acc": 0.9682539682539683,
+      "flip_consistency": 0.9047619047619048
+    },
+    "context_policy": {
+      "n": 30,
+      "flip_cos_mean": 0.9861264259929605,
+      "para_cos_mean": 0.9840949383003189,
+      "flip_percentile_mean": 0.9994005508006398,
+      "margin_fail": 16,
+      "cos_auroc": 0.4488888888888889,
+      "decision_acc": 0.6888888888888889,
+      "flip_consistency": 0.06666666666666667
+    }
+  },
+  "numeric_by_gap": {
+    "900/1100": 0.0,
+    "950/1050": 0.0,
+    "990/1010": 1.0,
+    "999/1000": 1.0
+  },
+  "n_failures": 95
+}

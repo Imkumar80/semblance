@@ -1,0 +1,245 @@
+{
+  "model": "hashing",
+  "control_mean": 0.24421129433420125,
+  "categories": {
+    "numerical_threshold": {
+      "role": "calibration",
+      "n": 30,
+      "flip_cos_mean": 0.7699999984600001,
+      "para_cos_mean": 0.7699999984600001,
+      "flip_percentile_mean": 0.9837134517389798,
+      "margin_fail": 21,
+      "cos_auroc": 0.5361111111111111,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.52392578125,
+        "high": 0.5612244897959184
+      },
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          }
+        }
+      }
+    },
+    "scope": {
+      "role": "primary",
+      "n": 30,
+      "flip_cos_mean": 0.8542967406092252,
+      "para_cos_mean": 0.8662962945637036,
+      "flip_percentile_mean": 0.994202850750617,
+      "margin_fail": 19,
+      "cos_auroc": 0.5905555555555555,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.47512755102040816,
+        "high": 0.8011316872427984
+      },
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 0.9888888888888889,
+            "n_decisions": 90,
+            "flip_consistency": 0.9666666666666667,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.8666666666666667,
+            "n_decisions": 90,
+            "flip_consistency": 0.6,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.7666666666666667,
+            "n_decisions": 90,
+            "flip_consistency": 0.3,
+            "n_pairs": 30
+          }
+        }
+      }
+    },
+    "permission": {
+      "role": "primary",
+      "n": 30,
+      "flip_cos_mean": 0.9312923779348814,
+      "para_cos_mean": 0.9205217630256222,
+      "flip_percentile_mean": 0.9983954220880951,
+      "margin_fail": 22,
+      "cos_auroc": 0.3055555555555556,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.0,
+        "high": 0.7741935483870968
+      },
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.7222222222222222,
+            "n_decisions": 90,
+            "flip_consistency": 0.16666666666666666,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.6777777777777778,
+            "n_decisions": 90,
+            "flip_consistency": 0.03333333333333333,
+            "n_pairs": 30
+          }
+        }
+      }
+    },
+    "action": {
+      "role": "primary",
+      "n": 30,
+      "flip_cos_mean": 0.8675793633442063,
+      "para_cos_mean": 0.8464991193821111,
+      "flip_percentile_mean": 0.9952514058609147,
+      "margin_fail": 30,
+      "cos_auroc": 0.31000000000000005,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.039999999999999994,
+        "high": 0.5
+      },
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          }
+        }
+      }
+    },
+    "tool_function": {
+      "role": "primary",
+      "n": 21,
+      "flip_cos_mean": 0.8400070243381696,
+      "para_cos_mean": 0.9236109576881072,
+      "flip_percentile_mean": 0.990967230738665,
+      "margin_fail": 14,
+      "cos_auroc": 0.7777777777777778,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.49999999999999994,
+        "high": 0.9921875
+      },
+      "embedding_rank_flip_consistency": 0.47619047619047616
+    },
+    "context_policy": {
+      "role": "primary",
+      "n": 30,
+      "flip_cos_mean": 0.9513081229687865,
+      "para_cos_mean": 0.9137611377776916,
+      "flip_percentile_mean": 0.9994843802393399,
+      "margin_fail": 29,
+      "cos_auroc": 0.09722222222222224,
+      "cos_auroc_family_bootstrap_95ci": {
+        "low": 0.0,
+        "high": 0.14222222222222222
+      },
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 0.7111111111111111,
+            "n_decisions": 90,
+            "flip_consistency": 0.16666666666666666,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.7444444444444445,
+            "n_decisions": 90,
+            "flip_consistency": 0.4,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.6555555555555556,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.6444444444444445,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          }
+        }
+      }
+    }
+  },
+  "bootstrap_unit": "family",
+  "n_failures": 457,
+  "failures_by_category": {
+    "numerical_threshold": 81,
+    "scope": 53,
+    "permission": 76,
+    "action": 90,
+    "tool_function": 25,
+    "context_policy": 132
+  }
+}

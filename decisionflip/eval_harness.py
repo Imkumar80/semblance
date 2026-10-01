@@ -32,6 +32,7 @@ from collections import defaultdict
 
 def cosine_sim(a, b):
     import numpy as np
+
     a = np.array(a)
     b = np.array(b)
     return float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8))
@@ -75,7 +76,11 @@ def main():
 
     print("\n=== Similarity Gap by category ===")
     print(f"{'category':<24} {'mean_sim':>10} {'min':>8} {'max':>8}  vs control")
-    summary = {"model": args.model, "control_mean_similarity": control_mean, "categories": {}}
+    summary = {
+        "model": args.model,
+        "control_mean_similarity": control_mean,
+        "categories": {},
+    }
     for cat, sims in by_cat.items():
         mean_sim = sum(sims) / len(sims)
         flag = ""

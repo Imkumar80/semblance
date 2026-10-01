@@ -1,0 +1,2833 @@
+{
+  "triples": [
+    {
+      "id": "num_0",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $950 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1050 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_1",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $999 to the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1000 to the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_2",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $999 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1000 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_3",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $990 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1010 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_4",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $950 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1050 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_5",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $990 to the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1010 to the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_6",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $900 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1100 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $950 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_7",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $999 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1000 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_8",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $990 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1010 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_9",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $900 to the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1100 to the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $950 to the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_10",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $950 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1050 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_11",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $900 to Priya.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1100 to Priya.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $950 to Priya.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_12",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $950 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1050 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_13",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $999 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1000 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_14",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $999 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1000 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_15",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $990 to Rahul.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1010 to Rahul.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to Rahul.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_16",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $950 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1050 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_17",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $990 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1010 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_18",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $900 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1100 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $950 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_19",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $999 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1000 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_20",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $990 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1010 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_21",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $900 to Priya.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1100 to Priya.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $950 to Priya.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_22",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $950 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1050 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_23",
+      "category": "numerical_threshold",
+      "family": "num:gap900/1100",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $900 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1100 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $950 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "900/1100"
+    },
+    {
+      "id": "num_24",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $950 to Bob.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1050 to Bob.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to Bob.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_25",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Transfer $999 to Priya.",
+      "label_a": "ALLOW",
+      "text_b": "Transfer $1000 to Priya.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Transfer $900 to Priya.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_26",
+      "category": "numerical_threshold",
+      "family": "num:gap999/1000",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $999 to Alice.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1000 to Alice.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to Alice.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "999/1000"
+    },
+    {
+      "id": "num_27",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Pay $990 to Priya.",
+      "label_a": "ALLOW",
+      "text_b": "Pay $1010 to Priya.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Pay $900 to Priya.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "num_28",
+      "category": "numerical_threshold",
+      "family": "num:gap950/1050",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $950 to Priya.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1050 to Priya.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to Priya.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "950/1050"
+    },
+    {
+      "id": "num_29",
+      "category": "numerical_threshold",
+      "family": "num:gap990/1010",
+      "rule": "amount < $1000 -> ALLOW; >= -> REQUIRE_APPROVAL",
+      "text_a": "Refund $990 to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Refund $1010 to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Refund $900 to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "amount"
+      ],
+      "gap": "990/1010"
+    },
+    {
+      "id": "scope_0",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Push the release to dev.",
+      "label_a": "ALLOW",
+      "text_b": "Push the release to prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Push the release to staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_1",
+      "category": "scope",
+      "family": "scope_pair:the internal network|the public-facing network",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Restart the service in the internal network.",
+      "label_a": "ALLOW",
+      "text_b": "Restart the service in the public-facing network.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Restart the service in the private network.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_2",
+      "category": "scope",
+      "family": "scope_pair:the QA environment|the customer-facing environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Apply the security update in the QA environment.",
+      "label_a": "ALLOW",
+      "text_b": "Apply the security update in the customer-facing environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Apply the security update in the staging environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_3",
+      "category": "scope",
+      "family": "scope_pair:staging|production",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Run the migration script against staging.",
+      "label_a": "ALLOW",
+      "text_b": "Run the migration script against production.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Run the migration script against dev.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_4",
+      "category": "scope",
+      "family": "scope_pair:staging|production",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Deploy the new config to staging.",
+      "label_a": "ALLOW",
+      "text_b": "Deploy the new config to production.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Deploy the new config to dev.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_5",
+      "category": "scope",
+      "family": "scope_pair:staging|production",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Publish the application to staging.",
+      "label_a": "ALLOW",
+      "text_b": "Publish the application to production.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Publish the application to dev.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_6",
+      "category": "scope",
+      "family": "scope_pair:the canary environment|the global environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Push the release to the canary environment.",
+      "label_a": "ALLOW",
+      "text_b": "Push the release to the global environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Push the release to the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_7",
+      "category": "scope",
+      "family": "scope_pair:the QA environment|the customer-facing environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Restart the service in the QA environment.",
+      "label_a": "ALLOW",
+      "text_b": "Restart the service in the customer-facing environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Restart the service in the staging environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_8",
+      "category": "scope",
+      "family": "scope_pair:the internal network|the public-facing network",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Apply the security update in the internal network.",
+      "label_a": "ALLOW",
+      "text_b": "Apply the security update in the public-facing network.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Apply the security update in the private network.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_9",
+      "category": "scope",
+      "family": "scope_pair:the canary environment|the global environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Run the migration script against the canary environment.",
+      "label_a": "ALLOW",
+      "text_b": "Run the migration script against the global environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Run the migration script against the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_10",
+      "category": "scope",
+      "family": "scope_pair:the test cluster|the production cluster",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Deploy the new config to the test cluster.",
+      "label_a": "ALLOW",
+      "text_b": "Deploy the new config to the production cluster.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Deploy the new config to the QA cluster.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_11",
+      "category": "scope",
+      "family": "scope_pair:the QA environment|the customer-facing environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Publish the application to the QA environment.",
+      "label_a": "ALLOW",
+      "text_b": "Publish the application to the customer-facing environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Publish the application to the staging environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_12",
+      "category": "scope",
+      "family": "scope_pair:staging|production",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Push the release to staging.",
+      "label_a": "ALLOW",
+      "text_b": "Push the release to production.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Push the release to dev.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_13",
+      "category": "scope",
+      "family": "scope_pair:the canary environment|the global environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Restart the service in the canary environment.",
+      "label_a": "ALLOW",
+      "text_b": "Restart the service in the global environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Restart the service in the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_14",
+      "category": "scope",
+      "family": "scope_pair:staging|production",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Apply the security update in staging.",
+      "label_a": "ALLOW",
+      "text_b": "Apply the security update in production.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Apply the security update in dev.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_15",
+      "category": "scope",
+      "family": "scope_pair:the internal network|the public-facing network",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Run the migration script against the internal network.",
+      "label_a": "ALLOW",
+      "text_b": "Run the migration script against the public-facing network.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Run the migration script against the private network.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_16",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Deploy the new config to dev.",
+      "label_a": "ALLOW",
+      "text_b": "Deploy the new config to prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Deploy the new config to staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_17",
+      "category": "scope",
+      "family": "scope_pair:the internal network|the public-facing network",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Publish the application to the internal network.",
+      "label_a": "ALLOW",
+      "text_b": "Publish the application to the public-facing network.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Publish the application to the private network.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_18",
+      "category": "scope",
+      "family": "scope_pair:the test cluster|the production cluster",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Push the release to the test cluster.",
+      "label_a": "ALLOW",
+      "text_b": "Push the release to the production cluster.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Push the release to the QA cluster.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_19",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Restart the service in dev.",
+      "label_a": "ALLOW",
+      "text_b": "Restart the service in prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Restart the service in staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_20",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Apply the security update in dev.",
+      "label_a": "ALLOW",
+      "text_b": "Apply the security update in prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Apply the security update in staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_21",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Run the migration script against dev.",
+      "label_a": "ALLOW",
+      "text_b": "Run the migration script against prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Run the migration script against staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_22",
+      "category": "scope",
+      "family": "scope_pair:the sandbox environment|the live environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Deploy the new config to the sandbox environment.",
+      "label_a": "ALLOW",
+      "text_b": "Deploy the new config to the live environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Deploy the new config to the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_23",
+      "category": "scope",
+      "family": "scope_pair:dev|prod",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Publish the application to dev.",
+      "label_a": "ALLOW",
+      "text_b": "Publish the application to prod.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Publish the application to staging.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_24",
+      "category": "scope",
+      "family": "scope_pair:the internal network|the public-facing network",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Push the release to the internal network.",
+      "label_a": "ALLOW",
+      "text_b": "Push the release to the public-facing network.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Push the release to the private network.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_25",
+      "category": "scope",
+      "family": "scope_pair:the test cluster|the production cluster",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Restart the service in the test cluster.",
+      "label_a": "ALLOW",
+      "text_b": "Restart the service in the production cluster.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Restart the service in the QA cluster.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_26",
+      "category": "scope",
+      "family": "scope_pair:the sandbox environment|the live environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Apply the security update in the sandbox environment.",
+      "label_a": "ALLOW",
+      "text_b": "Apply the security update in the live environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Apply the security update in the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_27",
+      "category": "scope",
+      "family": "scope_pair:the test cluster|the production cluster",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Run the migration script against the test cluster.",
+      "label_a": "ALLOW",
+      "text_b": "Run the migration script against the production cluster.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Run the migration script against the QA cluster.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_28",
+      "category": "scope",
+      "family": "scope_pair:the QA environment|the customer-facing environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Deploy the new config to the QA environment.",
+      "label_a": "ALLOW",
+      "text_b": "Deploy the new config to the customer-facing environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Deploy the new config to the staging environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "scope_29",
+      "category": "scope",
+      "family": "scope_pair:the sandbox environment|the live environment",
+      "rule": "safe target -> ALLOW; production-like target -> REQUIRE_APPROVAL",
+      "text_a": "Publish the application to the sandbox environment.",
+      "label_a": "ALLOW",
+      "text_b": "Publish the application to the live environment.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Publish the application to the test environment.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "scope"
+      ]
+    },
+    {
+      "id": "perm_0",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has an approved request to delete the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has a denied request to delete the billing database.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has an accepted request to delete the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_1",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The contractor has manager approval to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "The contractor has no manager approval to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "The contractor has manager sign-off to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_2",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The contractor is authorized to modify the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The contractor is not authorized to modify the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The contractor is permitted to modify the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_3",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has been granted permission to delete the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has been denied permission to delete the production API keys.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has been given permission to delete the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_4",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has an approved request to export the customer records table.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has a denied request to export the customer records table.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has an accepted request to export the customer records table.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_5",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has manager approval to access the shared drive folder.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has no manager approval to access the shared drive folder.",
+      "label_b": "DENY",
+      "text_para": "The new hire has manager sign-off to access the shared drive folder.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_6",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The contractor is authorized to access the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The contractor is not authorized to access the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The contractor is permitted to access the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_7",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has been granted permission to modify the customer records table.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has been denied permission to modify the customer records table.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has been given permission to modify the customer records table.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_8",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has an approved request to export the customer records table.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has a denied request to export the customer records table.",
+      "label_b": "DENY",
+      "text_para": "The new hire has an accepted request to export the customer records table.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_9",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has manager approval to access the shared drive folder.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has no manager approval to access the shared drive folder.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has manager sign-off to access the shared drive folder.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_10",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire is authorized to modify the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire is not authorized to modify the production API keys.",
+      "label_b": "DENY",
+      "text_para": "The new hire is permitted to modify the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_11",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has been granted permission to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has been denied permission to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has been given permission to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_12",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has an approved request to export the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has a denied request to export the production API keys.",
+      "label_b": "DENY",
+      "text_para": "The new hire has an accepted request to export the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_13",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has manager approval to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has no manager approval to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has manager sign-off to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_14",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer is authorized to delete the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer is not authorized to delete the production API keys.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer is permitted to delete the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_15",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has been granted permission to modify the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has been denied permission to modify the billing database.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has been given permission to modify the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_16",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has an approved request to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has a denied request to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has an accepted request to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_17",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has manager approval to delete the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has no manager approval to delete the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The new hire has manager sign-off to delete the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_18",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The contractor is authorized to export the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The contractor is not authorized to export the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The contractor is permitted to export the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_19",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has been granted permission to delete the shared drive folder.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has been denied permission to delete the shared drive folder.",
+      "label_b": "DENY",
+      "text_para": "The new hire has been given permission to delete the shared drive folder.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_20",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has an approved request to access the shared drive folder.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has a denied request to access the shared drive folder.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has an accepted request to access the shared drive folder.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_21",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "Intern account #4 has manager approval to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "Intern account #4 has no manager approval to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "Intern account #4 has manager sign-off to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_22",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire is authorized to export the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire is not authorized to export the billing database.",
+      "label_b": "DENY",
+      "text_para": "The new hire is permitted to export the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_23",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has been granted permission to delete the billing database.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has been denied permission to delete the billing database.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has been given permission to delete the billing database.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_24",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The contractor has an approved request to export the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The contractor has a denied request to export the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The contractor has an accepted request to export the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_25",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer has manager approval to export the shared drive folder.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer has no manager approval to export the shared drive folder.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer has manager sign-off to export the shared drive folder.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_26",
+      "category": "permission",
+      "family": "perm:auth_negation",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The on-call engineer is authorized to access the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "The on-call engineer is not authorized to access the production API keys.",
+      "label_b": "DENY",
+      "text_para": "The on-call engineer is permitted to access the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_27",
+      "category": "permission",
+      "family": "perm:grant_deny",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has been granted permission to access the production API keys.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has been denied permission to access the production API keys.",
+      "label_b": "DENY",
+      "text_para": "The new hire has been given permission to access the production API keys.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_28",
+      "category": "permission",
+      "family": "perm:request_status",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has an approved request to access the customer records table.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has a denied request to access the customer records table.",
+      "label_b": "DENY",
+      "text_para": "The new hire has an accepted request to access the customer records table.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "perm_29",
+      "category": "permission",
+      "family": "perm:approval_lack",
+      "rule": "authorized/approved -> ALLOW; not authorized/not approved -> DENY",
+      "text_a": "The new hire has manager approval to modify the HR compensation sheet.",
+      "label_a": "ALLOW",
+      "text_b": "The new hire has no manager approval to modify the HR compensation sheet.",
+      "label_b": "DENY",
+      "text_para": "The new hire has manager sign-off to modify the HR compensation sheet.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "permission_status"
+      ]
+    },
+    {
+      "id": "action_0",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the intern.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the intern.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the intern.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_1",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_2",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the intern.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the intern.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the intern.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_3",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the finance group.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the finance group.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the finance group.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_4",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the new analyst.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the new analyst.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the new analyst.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_5",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_6",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the new analyst.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the new analyst.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the new analyst.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_7",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_8",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the intern.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the intern.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the intern.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_9",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the marketing team.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the marketing team.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the marketing team.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_10",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_11",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the marketing team.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the marketing team.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the marketing team.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_12",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the finance group.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the finance group.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the finance group.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_13",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_14",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_15",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the new analyst.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the new analyst.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the new analyst.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_16",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the intern.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the intern.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the intern.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_17",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_18",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_19",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the intern.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the intern.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the intern.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_20",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the marketing team.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the marketing team.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the marketing team.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_21",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the finance group.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the finance group.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the finance group.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_22",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the new analyst.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the new analyst.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the new analyst.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_23",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the new analyst.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the new analyst.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the new analyst.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_24",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the finance group.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the finance group.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the finance group.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_25",
+      "category": "action",
+      "family": "action:sshkey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Add an SSH key for the finance group.",
+      "label_a": "ALLOW",
+      "text_b": "Remove an SSH key for the finance group.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Register an SSH key for the finance group.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_26",
+      "category": "action",
+      "family": "action:apikey",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Activate the API key for the contractor.",
+      "label_a": "ALLOW",
+      "text_b": "Deactivate the API key for the contractor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Enable the API key for the contractor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_27",
+      "category": "action",
+      "family": "action:admin",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Grant admin access to the marketing team.",
+      "label_a": "ALLOW",
+      "text_b": "Revoke admin access to the marketing team.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Give admin access to the marketing team.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_28",
+      "category": "action",
+      "family": "action:2fa",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Enable two-factor authentication for the marketing team.",
+      "label_a": "ALLOW",
+      "text_b": "Disable two-factor authentication for the marketing team.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Turn on two-factor authentication for the marketing team.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "action_29",
+      "category": "action",
+      "family": "action:account",
+      "rule": "create/enable/grant -> ALLOW; delete/disable/revoke -> REQUIRE_APPROVAL (synthetic policy, see realism caveat)",
+      "text_a": "Create a user account for the vendor.",
+      "label_a": "ALLOW",
+      "text_b": "Delete a user account for the vendor.",
+      "label_b": "REQUIRE_APPROVAL",
+      "text_para": "Set up a user account for the vendor.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "action_verb"
+      ]
+    },
+    {
+      "id": "tool_0",
+      "category": "tool_function",
+      "family": "tool:doc",
+      "rule": "label = intended tool call",
+      "text_a": "Create a document about the billing outage.",
+      "label_a": "doc.create",
+      "text_b": "Find a document about the billing outage.",
+      "label_b": "doc.search",
+      "text_para": "Draft a document about the billing outage.",
+      "label_para": "doc.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new document",
+      "desc_b": "Search for existing documents"
+    },
+    {
+      "id": "tool_1",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with the vendor at 9am Monday.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with the vendor at 9am Monday.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with the vendor at 9am Monday.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_2",
+      "category": "tool_function",
+      "family": "tool:ticket",
+      "rule": "label = intended tool call",
+      "text_a": "Create a ticket about the billing outage.",
+      "label_a": "ticket.create",
+      "text_b": "Find a ticket about the billing outage.",
+      "label_b": "ticket.search",
+      "text_para": "Open a ticket about the billing outage.",
+      "label_para": "ticket.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new support ticket",
+      "desc_b": "Search for existing support tickets"
+    },
+    {
+      "id": "tool_3",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to Maya about the billing outage.",
+      "label_a": "email.send",
+      "text_b": "Find the email to Maya about the billing outage.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to Maya about the billing outage.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_4",
+      "category": "tool_function",
+      "family": "tool:doc",
+      "rule": "label = intended tool call",
+      "text_a": "Create a document about the onboarding plan.",
+      "label_a": "doc.create",
+      "text_b": "Find a document about the onboarding plan.",
+      "label_b": "doc.search",
+      "text_para": "Draft a document about the onboarding plan.",
+      "label_para": "doc.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new document",
+      "desc_b": "Search for existing documents"
+    },
+    {
+      "id": "tool_5",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with Maya at 9am Monday.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with Maya at 9am Monday.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with Maya at 9am Monday.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_6",
+      "category": "tool_function",
+      "family": "tool:ticket",
+      "rule": "label = intended tool call",
+      "text_a": "Create a ticket about the Q3 deadline.",
+      "label_a": "ticket.create",
+      "text_b": "Find a ticket about the Q3 deadline.",
+      "label_b": "ticket.search",
+      "text_para": "Open a ticket about the Q3 deadline.",
+      "label_para": "ticket.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new support ticket",
+      "desc_b": "Search for existing support tickets"
+    },
+    {
+      "id": "tool_7",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to the vendor about the onboarding plan.",
+      "label_a": "email.send",
+      "text_b": "Find the email to the vendor about the onboarding plan.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to the vendor about the onboarding plan.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_8",
+      "category": "tool_function",
+      "family": "tool:doc",
+      "rule": "label = intended tool call",
+      "text_a": "Create a document about the audit.",
+      "label_a": "doc.create",
+      "text_b": "Find a document about the audit.",
+      "label_b": "doc.search",
+      "text_para": "Draft a document about the audit.",
+      "label_para": "doc.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new document",
+      "desc_b": "Search for existing documents"
+    },
+    {
+      "id": "tool_9",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with Rahul at 3pm tomorrow.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with Rahul at 3pm tomorrow.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with Rahul at 3pm tomorrow.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_10",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to Rahul about the Q3 deadline.",
+      "label_a": "email.send",
+      "text_b": "Find the email to Rahul about the Q3 deadline.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to Rahul about the Q3 deadline.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_11",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with Maya at noon on Friday.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with Maya at noon on Friday.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with Maya at noon on Friday.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_12",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to Rahul about the audit.",
+      "label_a": "email.send",
+      "text_b": "Find the email to Rahul about the audit.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to Rahul about the audit.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_13",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with the design team at noon on Friday.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with the design team at noon on Friday.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with the design team at noon on Friday.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_14",
+      "category": "tool_function",
+      "family": "tool:ticket",
+      "rule": "label = intended tool call",
+      "text_a": "Create a ticket about the audit.",
+      "label_a": "ticket.create",
+      "text_b": "Find a ticket about the audit.",
+      "label_b": "ticket.search",
+      "text_para": "Open a ticket about the audit.",
+      "label_para": "ticket.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new support ticket",
+      "desc_b": "Search for existing support tickets"
+    },
+    {
+      "id": "tool_15",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to the design team about the Q3 deadline.",
+      "label_a": "email.send",
+      "text_b": "Find the email to the design team about the Q3 deadline.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to the design team about the Q3 deadline.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_16",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with Maya at 3pm tomorrow.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with Maya at 3pm tomorrow.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with Maya at 3pm tomorrow.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_17",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to the vendor about the billing outage.",
+      "label_a": "email.send",
+      "text_b": "Find the email to the vendor about the billing outage.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to the vendor about the billing outage.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "tool_18",
+      "category": "tool_function",
+      "family": "tool:doc",
+      "rule": "label = intended tool call",
+      "text_a": "Create a document about the Q3 deadline.",
+      "label_a": "doc.create",
+      "text_b": "Find a document about the Q3 deadline.",
+      "label_b": "doc.search",
+      "text_para": "Draft a document about the Q3 deadline.",
+      "label_para": "doc.create",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new document",
+      "desc_b": "Search for existing documents"
+    },
+    {
+      "id": "tool_19",
+      "category": "tool_function",
+      "family": "tool:calendar",
+      "rule": "label = intended tool call",
+      "text_a": "Create a calendar event with the vendor at noon on Friday.",
+      "label_a": "calendar.create_event",
+      "text_b": "List calendar events with the vendor at noon on Friday.",
+      "label_b": "calendar.list_events",
+      "text_para": "Schedule a calendar event with the vendor at noon on Friday.",
+      "label_para": "calendar.create_event",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Create a new event on the user's calendar",
+      "desc_b": "List or look up existing events on the user's calendar"
+    },
+    {
+      "id": "tool_20",
+      "category": "tool_function",
+      "family": "tool:email",
+      "rule": "label = intended tool call",
+      "text_a": "Send the email to Rahul about the onboarding plan.",
+      "label_a": "email.send",
+      "text_b": "Find the email to Rahul about the onboarding plan.",
+      "label_b": "email.search",
+      "text_para": "Dispatch the email to Rahul about the onboarding plan.",
+      "label_para": "email.send",
+      "variables_changed": [
+        "intent_verb"
+      ],
+      "desc_a": "Send an email message to a recipient",
+      "desc_b": "Search the mailbox for existing emails"
+    },
+    {
+      "id": "context_0",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Only the service owner may deploy this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Only the on-call engineer may deploy this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: service owner is the sole role permitted to deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "service owner",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_1",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the security engineer. Policy: The security engineer is authorized to restart without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the security engineer. Policy: The service owner is authorized to restart without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the security engineer. Policy: Approval is not required when the actor is the security engineer and must restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "security engineer",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_2",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the service owner. Policy: A service owner may export this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the service owner. Policy: A security engineer may export this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the service owner. Policy: The current policy permits the service owner to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "service owner",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_3",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the contractor. Policy: Only the contractor may export this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the contractor. Policy: Only the on-call engineer may export this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the contractor. Policy: contractor is the sole role permitted to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "contractor",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_4",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the service owner. Policy: The service owner is authorized to export without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the service owner. Policy: The security engineer is authorized to export without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "service owner",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_5",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: A on-call engineer may restart this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: A contractor may restart this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: The current policy permits the on-call engineer to restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "on-call engineer",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_6",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the service owner. Policy: Only the service owner may export this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the service owner. Policy: Only the security engineer may export this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the service owner. Policy: service owner is the sole role permitted to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "service owner",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_7",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: The on-call engineer is authorized to delete without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: The security engineer is authorized to delete without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: Approval is not required when the actor is the on-call engineer and must delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "on-call engineer",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_8",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: A security engineer may delete this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: A on-call engineer may delete this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: The current policy permits the security engineer to delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "security engineer",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_9",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the on-call engineer. Policy: Only the on-call engineer may export this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the on-call engineer. Policy: Only the security engineer may export this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "on-call engineer",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_10",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the service owner. Policy: The service owner is authorized to restart without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the service owner. Policy: The security engineer is authorized to restart without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "service owner",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_11",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the contractor. Policy: A contractor may export this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the contractor. Policy: A service owner may export this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the contractor. Policy: The current policy permits the contractor to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "contractor",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_12",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the contractor. Policy: Only the contractor may restart this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the contractor. Policy: Only the security engineer may restart this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the contractor. Policy: contractor is the sole role permitted to restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "contractor",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_13",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: The contractor is authorized to deploy without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: The security engineer is authorized to deploy without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: Approval is not required when the actor is the contractor and must deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "contractor",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_14",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the contractor. Policy: A contractor may restart this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the contractor. Policy: A security engineer may restart this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the contractor. Policy: The current policy permits the contractor to restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "contractor",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_15",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Rotate the production API key. Context: actor is the service owner. Policy: Only the service owner may rotate this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Rotate the production API key. Context: actor is the service owner. Policy: Only the contractor may rotate this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Rotate the production API key. Context: actor is the service owner. Policy: service owner is the sole role permitted to rotate this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Rotate the production API key",
+      "actor_context": "service owner",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_16",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: The contractor is authorized to delete without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: The on-call engineer is authorized to delete without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: Approval is not required when the actor is the contractor and must delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "contractor",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_17",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Export the customer account data. Context: actor is the security engineer. Policy: A security engineer may export this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Export the customer account data. Context: actor is the security engineer. Policy: A contractor may export this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Export the customer account data. Context: actor is the security engineer. Policy: The current policy permits the security engineer to export this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Export the customer account data",
+      "actor_context": "security engineer",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_18",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: Only the contractor may delete this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: Only the security engineer may delete this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the contractor. Policy: contractor is the sole role permitted to delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "contractor",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_19",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: The service owner is authorized to deploy without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: The security engineer is authorized to deploy without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "service owner",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_20",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: A on-call engineer may delete this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: A contractor may delete this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: The current policy permits the on-call engineer to delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "on-call engineer",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_21",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Only the on-call engineer may deploy this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Only the security engineer may deploy this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "on-call engineer",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_22",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: The on-call engineer is authorized to deploy without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: The contractor is authorized to deploy without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Approval is not required when the actor is the on-call engineer and must deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "on-call engineer",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_23",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: A service owner may deploy this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: A on-call engineer may deploy this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: The current policy permits the service owner to deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "service owner",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_24",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: Only the on-call engineer may restart this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: Only the contractor may restart this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to restart this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Restart the production service",
+      "actor_context": "on-call engineer",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_25",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the service owner. Policy: The service owner is authorized to delete without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the service owner. Policy: The security engineer is authorized to delete without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "service owner",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_26",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: A on-call engineer may deploy this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: A contractor may deploy this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: The current policy permits the on-call engineer to deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "on-call engineer",
+      "policy_family": "delegation_policy"
+    },
+    {
+      "id": "context_27",
+      "category": "context_policy",
+      "family": "context_policy:role_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: Only the security engineer may delete this resource.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: Only the on-call engineer may delete this resource.",
+      "label_b": "DENY",
+      "text_para": "Request: Delete the archived customer record. Context: actor is the security engineer. Policy: security engineer is the sole role permitted to delete this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Delete the archived customer record",
+      "actor_context": "security engineer",
+      "policy_family": "role_policy"
+    },
+    {
+      "id": "context_28",
+      "category": "context_policy",
+      "family": "context_policy:approval_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Rotate the production API key. Context: actor is the security engineer. Policy: The security engineer is authorized to rotate without approval.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Rotate the production API key. Context: actor is the security engineer. Policy: The on-call engineer is authorized to rotate without approval.",
+      "label_b": "DENY",
+      "text_para": "Request: Rotate the production API key. Context: actor is the security engineer. Policy: Approval is not required when the actor is the security engineer and must rotate this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Rotate the production API key",
+      "actor_context": "security engineer",
+      "policy_family": "approval_policy"
+    },
+    {
+      "id": "context_29",
+      "category": "context_policy",
+      "family": "context_policy:delegation_policy",
+      "rule": "the actor's role must match the role permitted by the policy",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: A contractor may deploy this resource under the current policy.",
+      "label_a": "ALLOW",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: A service owner may deploy this resource under the current policy.",
+      "label_b": "DENY",
+      "text_para": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: The current policy permits the contractor to deploy this resource.",
+      "label_para": "ALLOW",
+      "variables_changed": [
+        "policy_allowed_role"
+      ],
+      "request": "Deploy the hotfix to production",
+      "actor_context": "contractor",
+      "policy_family": "delegation_policy"
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctrl_0",
+      "text_a": "Transfer $990 to Alice.",
+      "text_b": "Intern account #4 has been granted permission to export the billing database."
+    },
+    {
+      "id": "ctrl_1",
+      "text_a": "Pay $950 to the contractor.",
+      "text_b": "Grant admin access to the marketing team."
+    },
+    {
+      "id": "ctrl_2",
+      "text_a": "Create a calendar event with Maya at noon on Friday.",
+      "text_b": "Refund $990 to the contractor."
+    },
+    {
+      "id": "ctrl_3",
+      "text_a": "Grant admin access to the marketing team.",
+      "text_b": "The contractor has manager approval to export the billing database."
+    },
+    {
+      "id": "ctrl_4",
+      "text_a": "The contractor has manager approval to export the billing database.",
+      "text_b": "Refund $999 to Alice."
+    },
+    {
+      "id": "ctrl_5",
+      "text_a": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: A on-call engineer may delete this resource under the current policy.",
+      "text_b": "The new hire has manager approval to modify the HR compensation sheet."
+    },
+    {
+      "id": "ctrl_6",
+      "text_a": "Apply the security update in the internal network.",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: The contractor is authorized to deploy without approval."
+    },
+    {
+      "id": "ctrl_7",
+      "text_a": "Create a ticket about the Q3 deadline.",
+      "text_b": "The contractor has an approved request to export the HR compensation sheet."
+    },
+    {
+      "id": "ctrl_8",
+      "text_a": "The new hire has an approved request to access the customer records table.",
+      "text_b": "Add an SSH key for the intern."
+    },
+    {
+      "id": "ctrl_9",
+      "text_a": "Request: Deploy the hotfix to production. Context: actor is the contractor. Policy: A contractor may deploy this resource under the current policy.",
+      "text_b": "Enable two-factor authentication for the marketing team."
+    },
+    {
+      "id": "ctrl_10",
+      "text_a": "Create a ticket about the Q3 deadline.",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: A service owner may deploy this resource under the current policy."
+    },
+    {
+      "id": "ctrl_11",
+      "text_a": "Refund $990 to the contractor.",
+      "text_b": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: A service owner may deploy this resource under the current policy."
+    },
+    {
+      "id": "ctrl_12",
+      "text_a": "Create a user account for the intern.",
+      "text_b": "Request: Restart the production service. Context: actor is the on-call engineer. Policy: Only the on-call engineer may restart this resource."
+    },
+    {
+      "id": "ctrl_13",
+      "text_a": "Run the migration script against the internal network.",
+      "text_b": "The contractor has manager approval to export the billing database."
+    },
+    {
+      "id": "ctrl_14",
+      "text_a": "Create a calendar event with Maya at 9am Monday.",
+      "text_b": "Run the migration script against the internal network."
+    },
+    {
+      "id": "ctrl_15",
+      "text_a": "Create a user account for the marketing team.",
+      "text_b": "The on-call engineer has manager approval to access the shared drive folder."
+    },
+    {
+      "id": "ctrl_16",
+      "text_a": "The new hire has an approved request to export the production API keys.",
+      "text_b": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: A on-call engineer may delete this resource under the current policy."
+    },
+    {
+      "id": "ctrl_17",
+      "text_a": "Run the migration script against the internal network.",
+      "text_b": "The new hire has manager approval to delete the HR compensation sheet."
+    },
+    {
+      "id": "ctrl_18",
+      "text_a": "Request: Export the customer account data. Context: actor is the contractor. Policy: Only the contractor may export this resource.",
+      "text_b": "Add an SSH key for the vendor."
+    },
+    {
+      "id": "ctrl_19",
+      "text_a": "Request: Export the customer account data. Context: actor is the service owner. Policy: A service owner may export this resource under the current policy.",
+      "text_b": "Push the release to the canary environment."
+    }
+  ]
+}

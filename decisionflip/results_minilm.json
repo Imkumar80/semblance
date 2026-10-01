@@ -1,0 +1,73 @@
+{
+  "model": "all-MiniLM-L6-v2",
+  "control_mean": 0.16825722694368106,
+  "categories": {
+    "numerical_threshold": {
+      "n": 30,
+      "flip_cos_mean": 0.9235347429048545,
+      "para_cos_mean": 0.9363433254430222,
+      "flip_percentile_mean": 0.9958129256748955,
+      "margin_fail": 11,
+      "cos_auroc": 0.6944444444444444,
+      "decision_acc": 0.7888888888888889,
+      "flip_consistency": 0.36666666666666664
+    },
+    "scope": {
+      "n": 30,
+      "flip_cos_mean": 0.8274752459352505,
+      "para_cos_mean": 0.7772686466485267,
+      "flip_percentile_mean": 0.9879134440431624,
+      "margin_fail": 25,
+      "cos_auroc": 0.2922222222222222,
+      "decision_acc": 0.7333333333333333,
+      "flip_consistency": 0.36666666666666664
+    },
+    "permission": {
+      "n": 30,
+      "flip_cos_mean": 0.8726943971971137,
+      "para_cos_mean": 0.9590979037992192,
+      "flip_percentile_mean": 0.9915939686780233,
+      "margin_fail": 0,
+      "cos_auroc": 0.8788888888888889,
+      "decision_acc": 0.9888888888888889,
+      "flip_consistency": 0.9666666666666667
+    },
+    "action": {
+      "n": 30,
+      "flip_cos_mean": 0.8652244643325787,
+      "para_cos_mean": 0.9689324349394481,
+      "flip_percentile_mean": 0.9910384955776536,
+      "margin_fail": 0,
+      "cos_auroc": 0.9988888888888889,
+      "decision_acc": 1.0,
+      "flip_consistency": 1.0
+    },
+    "tool_function": {
+      "n": 21,
+      "flip_cos_mean": 0.9494984852730843,
+      "para_cos_mean": 0.9478459396953195,
+      "flip_percentile_mean": 0.9974721595955456,
+      "margin_fail": 11,
+      "cos_auroc": 0.4444444444444444,
+      "decision_acc": 0.8253968253968254,
+      "flip_consistency": 0.5238095238095238
+    },
+    "context_policy": {
+      "n": 30,
+      "flip_cos_mean": 0.966191453971163,
+      "para_cos_mean": 0.9832682350922561,
+      "flip_percentile_mean": 0.9985116838998004,
+      "margin_fail": 3,
+      "cos_auroc": 0.7866666666666667,
+      "decision_acc": 0.7777777777777778,
+      "flip_consistency": 0.3333333333333333
+    }
+  },
+  "numeric_by_gap": {
+    "900/1100": 0.6666666666666666,
+    "950/1050": 0.125,
+    "990/1010": 0.75,
+    "999/1000": 0.0
+  },
+  "n_failures": 119
+}
