@@ -1,0 +1,2316 @@
+{
+  "system_prompt": "Apply the policy stated in the input. Decide whether the actor may perform the requested action. Return exactly one label: ALLOW or DENY. Do not infer policy rules that are not stated.",
+  "prediction_format": {
+    "<record_id>": {
+      "text_a": "ALLOW or DENY",
+      "text_b": "ALLOW or DENY",
+      "text_para": "ALLOW or DENY"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "context_26:text_a",
+      "record_id": "context_26",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: The incident commander is authorized to quarantine without approval."
+    },
+    {
+      "case_id": "context_26:text_b",
+      "record_id": "context_26",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: The service owner is authorized to quarantine without approval."
+    },
+    {
+      "case_id": "context_26:text_para",
+      "record_id": "context_26",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: Approval is not required when the actor is the incident commander and must quarantine this resource."
+    },
+    {
+      "case_id": "context_28:text_a",
+      "record_id": "context_28",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the support analyst. Policy: This operation is restricted to the support analyst role."
+    },
+    {
+      "case_id": "context_28:text_b",
+      "record_id": "context_28",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the support analyst. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_28:text_para",
+      "record_id": "context_28",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the support analyst. Policy: Only a person assigned the support analyst role can perform this operation."
+    },
+    {
+      "case_id": "context_35:text_a",
+      "record_id": "context_35",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: Policy grants the support analyst permission to purge this resource."
+    },
+    {
+      "case_id": "context_35:text_b",
+      "record_id": "context_35",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: Policy grants the contractor permission to purge this resource."
+    },
+    {
+      "case_id": "context_35:text_para",
+      "record_id": "context_35",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: The support analyst role has permission under policy to purge this resource."
+    },
+    {
+      "case_id": "context_37:text_a",
+      "record_id": "context_37",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the platform engineer. Policy: For this resource, only the platform engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_37:text_b",
+      "record_id": "context_37",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the platform engineer. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_37:text_para",
+      "record_id": "context_37",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the platform engineer. Policy: The requested operation on this resource may be carried out only by the platform engineer."
+    },
+    {
+      "case_id": "context_41:text_a",
+      "record_id": "context_41",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: Only the contractor may modify this resource."
+    },
+    {
+      "case_id": "context_41:text_b",
+      "record_id": "context_41",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: Only the incident commander may modify this resource."
+    },
+    {
+      "case_id": "context_41:text_para",
+      "record_id": "context_41",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: contractor is the sole role permitted to modify this resource."
+    },
+    {
+      "case_id": "context_53:text_a",
+      "record_id": "context_53",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the service owner. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_53:text_b",
+      "record_id": "context_53",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the service owner. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_53:text_para",
+      "record_id": "context_53",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the service owner. Policy: The requested operation on this resource may be carried out only by the service owner."
+    },
+    {
+      "case_id": "context_57:text_a",
+      "record_id": "context_57",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Only the service owner may deploy this resource."
+    },
+    {
+      "case_id": "context_57:text_b",
+      "record_id": "context_57",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Only the contractor may deploy this resource."
+    },
+    {
+      "case_id": "context_57:text_para",
+      "record_id": "context_57",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: service owner is the sole role permitted to deploy this resource."
+    },
+    {
+      "case_id": "context_70:text_a",
+      "record_id": "context_70",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_70:text_b",
+      "record_id": "context_70",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_70:text_para",
+      "record_id": "context_70",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: The role authorized for this resource's operation is the incident commander."
+    },
+    {
+      "case_id": "context_72:text_a",
+      "record_id": "context_72",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: No role other than the support analyst can close this resource."
+    },
+    {
+      "case_id": "context_72:text_b",
+      "record_id": "context_72",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: No role other than the platform engineer can close this resource."
+    },
+    {
+      "case_id": "context_72:text_para",
+      "record_id": "context_72",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: The support analyst alone is allowed to close this resource."
+    },
+    {
+      "case_id": "context_85:text_a",
+      "record_id": "context_85",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_85:text_b",
+      "record_id": "context_85",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: For this resource, only the contractor may carry out the requested operation."
+    },
+    {
+      "case_id": "context_85:text_para",
+      "record_id": "context_85",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_86:text_a",
+      "record_id": "context_86",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the security engineer. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_86:text_b",
+      "record_id": "context_86",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the security engineer. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_86:text_para",
+      "record_id": "context_86",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the security engineer. Policy: The role authorized for this resource's operation is the security engineer."
+    },
+    {
+      "case_id": "context_91:text_a",
+      "record_id": "context_91",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: Policy grants the platform engineer permission to purge this resource."
+    },
+    {
+      "case_id": "context_91:text_b",
+      "record_id": "context_91",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: Policy grants the on-call engineer permission to purge this resource."
+    },
+    {
+      "case_id": "context_91:text_para",
+      "record_id": "context_91",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: The platform engineer role has permission under policy to purge this resource."
+    },
+    {
+      "case_id": "context_116:text_a",
+      "record_id": "context_116",
+      "slot": "text_a",
+      "state": "Request: Restore the latest database backup. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_116:text_b",
+      "record_id": "context_116",
+      "slot": "text_b",
+      "state": "Request: Restore the latest database backup. Context: actor is the on-call engineer. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_116:text_para",
+      "record_id": "context_116",
+      "slot": "text_para",
+      "state": "Request: Restore the latest database backup. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_120:text_a",
+      "record_id": "context_120",
+      "slot": "text_a",
+      "state": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: No role other than the on-call engineer can delete this resource."
+    },
+    {
+      "case_id": "context_120:text_b",
+      "record_id": "context_120",
+      "slot": "text_b",
+      "state": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: No role other than the security engineer can delete this resource."
+    },
+    {
+      "case_id": "context_120:text_para",
+      "record_id": "context_120",
+      "slot": "text_para",
+      "state": "Request: Delete the archived customer record. Context: actor is the on-call engineer. Policy: The on-call engineer alone is allowed to delete this resource."
+    },
+    {
+      "case_id": "context_121:text_a",
+      "record_id": "context_121",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the contractor. Policy: Only the contractor may rotate this resource."
+    },
+    {
+      "case_id": "context_121:text_b",
+      "record_id": "context_121",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the contractor. Policy: Only the security engineer may rotate this resource."
+    },
+    {
+      "case_id": "context_121:text_para",
+      "record_id": "context_121",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the contractor. Policy: contractor is the sole role permitted to rotate this resource."
+    },
+    {
+      "case_id": "context_126:text_a",
+      "record_id": "context_126",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_126:text_b",
+      "record_id": "context_126",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_126:text_para",
+      "record_id": "context_126",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: The role authorized for this resource's operation is the contractor."
+    },
+    {
+      "case_id": "context_133:text_a",
+      "record_id": "context_133",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: For this resource, only the contractor may carry out the requested operation."
+    },
+    {
+      "case_id": "context_133:text_b",
+      "record_id": "context_133",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_133:text_para",
+      "record_id": "context_133",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: The requested operation on this resource may be carried out only by the contractor."
+    },
+    {
+      "case_id": "context_134:text_a",
+      "record_id": "context_134",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the contractor. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_134:text_b",
+      "record_id": "context_134",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the contractor. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_134:text_para",
+      "record_id": "context_134",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the contractor. Policy: The role authorized for this resource's operation is the contractor."
+    },
+    {
+      "case_id": "context_144:text_a",
+      "record_id": "context_144",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: No role other than the on-call engineer can share this resource."
+    },
+    {
+      "case_id": "context_144:text_b",
+      "record_id": "context_144",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: No role other than the incident commander can share this resource."
+    },
+    {
+      "case_id": "context_144:text_para",
+      "record_id": "context_144",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: The on-call engineer alone is allowed to share this resource."
+    },
+    {
+      "case_id": "context_147:text_a",
+      "record_id": "context_147",
+      "slot": "text_a",
+      "state": "Request: Disable the compromised user account. Context: actor is the support analyst. Policy: Policy grants the support analyst permission to disable this resource."
+    },
+    {
+      "case_id": "context_147:text_b",
+      "record_id": "context_147",
+      "slot": "text_b",
+      "state": "Request: Disable the compromised user account. Context: actor is the support analyst. Policy: Policy grants the incident commander permission to disable this resource."
+    },
+    {
+      "case_id": "context_147:text_para",
+      "record_id": "context_147",
+      "slot": "text_para",
+      "state": "Request: Disable the compromised user account. Context: actor is the support analyst. Policy: The support analyst role has permission under policy to disable this resource."
+    },
+    {
+      "case_id": "context_151:text_a",
+      "record_id": "context_151",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the database administrator. Policy: The database administrator may export this resource under current policy."
+    },
+    {
+      "case_id": "context_151:text_b",
+      "record_id": "context_151",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the database administrator. Policy: The incident commander may export this resource under current policy."
+    },
+    {
+      "case_id": "context_151:text_para",
+      "record_id": "context_151",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the database administrator. Policy: Current policy authorizes the database administrator to export this resource."
+    },
+    {
+      "case_id": "context_157:text_a",
+      "record_id": "context_157",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_157:text_b",
+      "record_id": "context_157",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_157:text_para",
+      "record_id": "context_157",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_175:text_a",
+      "record_id": "context_175",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: The database administrator may quarantine this resource under current policy."
+    },
+    {
+      "case_id": "context_175:text_b",
+      "record_id": "context_175",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: The service owner may quarantine this resource under current policy."
+    },
+    {
+      "case_id": "context_175:text_para",
+      "record_id": "context_175",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: Current policy authorizes the database administrator to quarantine this resource."
+    },
+    {
+      "case_id": "context_194:text_a",
+      "record_id": "context_194",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: The platform engineer is authorized to initiate without approval."
+    },
+    {
+      "case_id": "context_194:text_b",
+      "record_id": "context_194",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: The security engineer is authorized to initiate without approval."
+    },
+    {
+      "case_id": "context_194:text_para",
+      "record_id": "context_194",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: Approval is not required when the actor is the platform engineer and must initiate this resource."
+    },
+    {
+      "case_id": "context_204:text_a",
+      "record_id": "context_204",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the security engineer. Policy: This operation is restricted to the security engineer role."
+    },
+    {
+      "case_id": "context_204:text_b",
+      "record_id": "context_204",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the security engineer. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_204:text_para",
+      "record_id": "context_204",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the security engineer. Policy: Only a person assigned the security engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_212:text_a",
+      "record_id": "context_212",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_212:text_b",
+      "record_id": "context_212",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_212:text_para",
+      "record_id": "context_212",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the contractor. Policy: Only a person assigned the contractor role can perform this operation."
+    },
+    {
+      "case_id": "context_225:text_a",
+      "record_id": "context_225",
+      "slot": "text_a",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: Only the support analyst may unlock this resource."
+    },
+    {
+      "case_id": "context_225:text_b",
+      "record_id": "context_225",
+      "slot": "text_b",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: Only the database administrator may unlock this resource."
+    },
+    {
+      "case_id": "context_225:text_para",
+      "record_id": "context_225",
+      "slot": "text_para",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: support analyst is the sole role permitted to unlock this resource."
+    },
+    {
+      "case_id": "context_235:text_a",
+      "record_id": "context_235",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the incident commander. Policy: Policy grants the incident commander permission to share this resource."
+    },
+    {
+      "case_id": "context_235:text_b",
+      "record_id": "context_235",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the incident commander. Policy: Policy grants the security engineer permission to share this resource."
+    },
+    {
+      "case_id": "context_235:text_para",
+      "record_id": "context_235",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the incident commander. Policy: The incident commander role has permission under policy to share this resource."
+    },
+    {
+      "case_id": "context_240:text_a",
+      "record_id": "context_240",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: No role other than the contractor can modify this resource."
+    },
+    {
+      "case_id": "context_240:text_b",
+      "record_id": "context_240",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: No role other than the incident commander can modify this resource."
+    },
+    {
+      "case_id": "context_240:text_para",
+      "record_id": "context_240",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the contractor. Policy: The contractor alone is allowed to modify this resource."
+    },
+    {
+      "case_id": "context_241:text_a",
+      "record_id": "context_241",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: Only the platform engineer may export this resource."
+    },
+    {
+      "case_id": "context_241:text_b",
+      "record_id": "context_241",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: Only the incident commander may export this resource."
+    },
+    {
+      "case_id": "context_241:text_para",
+      "record_id": "context_241",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: platform engineer is the sole role permitted to export this resource."
+    },
+    {
+      "case_id": "context_267:text_a",
+      "record_id": "context_267",
+      "slot": "text_a",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: Policy grants the security engineer permission to disable this resource."
+    },
+    {
+      "case_id": "context_267:text_b",
+      "record_id": "context_267",
+      "slot": "text_b",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: Policy grants the incident commander permission to disable this resource."
+    },
+    {
+      "case_id": "context_267:text_para",
+      "record_id": "context_267",
+      "slot": "text_para",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: The security engineer role has permission under policy to disable this resource."
+    },
+    {
+      "case_id": "context_270:text_a",
+      "record_id": "context_270",
+      "slot": "text_a",
+      "state": "Request: Restart the production service. Context: actor is the database administrator. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_270:text_b",
+      "record_id": "context_270",
+      "slot": "text_b",
+      "state": "Request: Restart the production service. Context: actor is the database administrator. Policy: For this resource, the support analyst role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_270:text_para",
+      "record_id": "context_270",
+      "slot": "text_para",
+      "state": "Request: Restart the production service. Context: actor is the database administrator. Policy: The role authorized for this resource's operation is the database administrator."
+    },
+    {
+      "case_id": "context_294:text_a",
+      "record_id": "context_294",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_294:text_b",
+      "record_id": "context_294",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: For this resource, the service owner role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_294:text_para",
+      "record_id": "context_294",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: The role authorized for this resource's operation is the incident commander."
+    },
+    {
+      "case_id": "context_309:text_a",
+      "record_id": "context_309",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the security engineer. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_309:text_b",
+      "record_id": "context_309",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the security engineer. Policy: For this resource, only the platform engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_309:text_para",
+      "record_id": "context_309",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the security engineer. Policy: The requested operation on this resource may be carried out only by the security engineer."
+    },
+    {
+      "case_id": "context_312:text_a",
+      "record_id": "context_312",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: No role other than the on-call engineer can revoke this resource."
+    },
+    {
+      "case_id": "context_312:text_b",
+      "record_id": "context_312",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: No role other than the contractor can revoke this resource."
+    },
+    {
+      "case_id": "context_312:text_para",
+      "record_id": "context_312",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: The on-call engineer alone is allowed to revoke this resource."
+    },
+    {
+      "case_id": "context_329:text_a",
+      "record_id": "context_329",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: Only the on-call engineer may update this resource."
+    },
+    {
+      "case_id": "context_329:text_b",
+      "record_id": "context_329",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: Only the service owner may update this resource."
+    },
+    {
+      "case_id": "context_329:text_para",
+      "record_id": "context_329",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to update this resource."
+    },
+    {
+      "case_id": "context_331:text_a",
+      "record_id": "context_331",
+      "slot": "text_a",
+      "state": "Request: Disable the compromised user account. Context: actor is the service owner. Policy: Policy grants the service owner permission to disable this resource."
+    },
+    {
+      "case_id": "context_331:text_b",
+      "record_id": "context_331",
+      "slot": "text_b",
+      "state": "Request: Disable the compromised user account. Context: actor is the service owner. Policy: Policy grants the incident commander permission to disable this resource."
+    },
+    {
+      "case_id": "context_331:text_para",
+      "record_id": "context_331",
+      "slot": "text_para",
+      "state": "Request: Disable the compromised user account. Context: actor is the service owner. Policy: The service owner role has permission under policy to disable this resource."
+    },
+    {
+      "case_id": "context_333:text_a",
+      "record_id": "context_333",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_333:text_b",
+      "record_id": "context_333",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_333:text_para",
+      "record_id": "context_333",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_335:text_a",
+      "record_id": "context_335",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: The contractor may close this resource under current policy."
+    },
+    {
+      "case_id": "context_335:text_b",
+      "record_id": "context_335",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: The platform engineer may close this resource under current policy."
+    },
+    {
+      "case_id": "context_335:text_para",
+      "record_id": "context_335",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: Current policy authorizes the contractor to close this resource."
+    },
+    {
+      "case_id": "context_338:text_a",
+      "record_id": "context_338",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: The service owner is authorized to deploy without approval."
+    },
+    {
+      "case_id": "context_338:text_b",
+      "record_id": "context_338",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: The contractor is authorized to deploy without approval."
+    },
+    {
+      "case_id": "context_338:text_para",
+      "record_id": "context_338",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must deploy this resource."
+    },
+    {
+      "case_id": "context_342:text_a",
+      "record_id": "context_342",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the on-call engineer. Policy: For this resource, the on-call engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_342:text_b",
+      "record_id": "context_342",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the on-call engineer. Policy: For this resource, the platform engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_342:text_para",
+      "record_id": "context_342",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the on-call engineer. Policy: The role authorized for this resource's operation is the on-call engineer."
+    },
+    {
+      "case_id": "context_350:text_a",
+      "record_id": "context_350",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_350:text_b",
+      "record_id": "context_350",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_350:text_para",
+      "record_id": "context_350",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: The role authorized for this resource's operation is the contractor."
+    },
+    {
+      "case_id": "context_360:text_a",
+      "record_id": "context_360",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: No role other than the on-call engineer can rotate this resource."
+    },
+    {
+      "case_id": "context_360:text_b",
+      "record_id": "context_360",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: No role other than the security engineer can rotate this resource."
+    },
+    {
+      "case_id": "context_360:text_para",
+      "record_id": "context_360",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: The on-call engineer alone is allowed to rotate this resource."
+    },
+    {
+      "case_id": "context_362:text_a",
+      "record_id": "context_362",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the support analyst. Policy: The support analyst is authorized to export without approval."
+    },
+    {
+      "case_id": "context_362:text_b",
+      "record_id": "context_362",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the support analyst. Policy: The incident commander is authorized to export without approval."
+    },
+    {
+      "case_id": "context_362:text_para",
+      "record_id": "context_362",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the support analyst. Policy: Approval is not required when the actor is the support analyst and must export this resource."
+    },
+    {
+      "case_id": "context_379:text_a",
+      "record_id": "context_379",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: Policy grants the on-call engineer permission to update this resource."
+    },
+    {
+      "case_id": "context_379:text_b",
+      "record_id": "context_379",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: Policy grants the service owner permission to update this resource."
+    },
+    {
+      "case_id": "context_379:text_para",
+      "record_id": "context_379",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: The on-call engineer role has permission under policy to update this resource."
+    },
+    {
+      "case_id": "context_385:text_a",
+      "record_id": "context_385",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: Only the database administrator may share this resource."
+    },
+    {
+      "case_id": "context_385:text_b",
+      "record_id": "context_385",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: Only the security engineer may share this resource."
+    },
+    {
+      "case_id": "context_385:text_para",
+      "record_id": "context_385",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: database administrator is the sole role permitted to share this resource."
+    },
+    {
+      "case_id": "context_400:text_a",
+      "record_id": "context_400",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: No role other than the support analyst can revoke this resource."
+    },
+    {
+      "case_id": "context_400:text_b",
+      "record_id": "context_400",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: No role other than the contractor can revoke this resource."
+    },
+    {
+      "case_id": "context_400:text_para",
+      "record_id": "context_400",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: The support analyst alone is allowed to revoke this resource."
+    },
+    {
+      "case_id": "context_403:text_a",
+      "record_id": "context_403",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: Policy grants the service owner permission to modify this resource."
+    },
+    {
+      "case_id": "context_403:text_b",
+      "record_id": "context_403",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: Policy grants the incident commander permission to modify this resource."
+    },
+    {
+      "case_id": "context_403:text_para",
+      "record_id": "context_403",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: The service owner role has permission under policy to modify this resource."
+    },
+    {
+      "case_id": "context_406:text_a",
+      "record_id": "context_406",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the database administrator. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_406:text_b",
+      "record_id": "context_406",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the database administrator. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_406:text_para",
+      "record_id": "context_406",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the database administrator. Policy: The role authorized for this resource's operation is the database administrator."
+    },
+    {
+      "case_id": "context_416:text_a",
+      "record_id": "context_416",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: No role other than the service owner can share this resource."
+    },
+    {
+      "case_id": "context_416:text_b",
+      "record_id": "context_416",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: No role other than the incident commander can share this resource."
+    },
+    {
+      "case_id": "context_416:text_para",
+      "record_id": "context_416",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: The service owner alone is allowed to share this resource."
+    },
+    {
+      "case_id": "context_428:text_a",
+      "record_id": "context_428",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_428:text_b",
+      "record_id": "context_428",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_428:text_para",
+      "record_id": "context_428",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the incident commander. Policy: Only a person assigned the incident commander role can perform this operation."
+    },
+    {
+      "case_id": "context_441:text_a",
+      "record_id": "context_441",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: Only the platform engineer may revoke this resource."
+    },
+    {
+      "case_id": "context_441:text_b",
+      "record_id": "context_441",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: Only the contractor may revoke this resource."
+    },
+    {
+      "case_id": "context_441:text_para",
+      "record_id": "context_441",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: platform engineer is the sole role permitted to revoke this resource."
+    },
+    {
+      "case_id": "context_443:text_a",
+      "record_id": "context_443",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Policy grants the on-call engineer permission to deploy this resource."
+    },
+    {
+      "case_id": "context_443:text_b",
+      "record_id": "context_443",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Policy grants the contractor permission to deploy this resource."
+    },
+    {
+      "case_id": "context_443:text_para",
+      "record_id": "context_443",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: The on-call engineer role has permission under policy to deploy this resource."
+    },
+    {
+      "case_id": "context_460:text_a",
+      "record_id": "context_460",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_460:text_b",
+      "record_id": "context_460",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the on-call engineer. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_460:text_para",
+      "record_id": "context_460",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_466:text_a",
+      "record_id": "context_466",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: The security engineer is authorized to purge without approval."
+    },
+    {
+      "case_id": "context_466:text_b",
+      "record_id": "context_466",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: The on-call engineer is authorized to purge without approval."
+    },
+    {
+      "case_id": "context_466:text_para",
+      "record_id": "context_466",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: Approval is not required when the actor is the security engineer and must purge this resource."
+    },
+    {
+      "case_id": "context_488:text_a",
+      "record_id": "context_488",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: No role other than the database administrator can purge this resource."
+    },
+    {
+      "case_id": "context_488:text_b",
+      "record_id": "context_488",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: No role other than the on-call engineer can purge this resource."
+    },
+    {
+      "case_id": "context_488:text_para",
+      "record_id": "context_488",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: The database administrator alone is allowed to purge this resource."
+    },
+    {
+      "case_id": "context_492:text_a",
+      "record_id": "context_492",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the service owner. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_492:text_b",
+      "record_id": "context_492",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the service owner. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_492:text_para",
+      "record_id": "context_492",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the service owner. Policy: Only a person assigned the service owner role can perform this operation."
+    },
+    {
+      "case_id": "context_517:text_a",
+      "record_id": "context_517",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: For this resource, only the contractor may carry out the requested operation."
+    },
+    {
+      "case_id": "context_517:text_b",
+      "record_id": "context_517",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: For this resource, only the platform engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_517:text_para",
+      "record_id": "context_517",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the contractor. Policy: The requested operation on this resource may be carried out only by the contractor."
+    },
+    {
+      "case_id": "context_522:text_a",
+      "record_id": "context_522",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: The service owner is authorized to modify without approval."
+    },
+    {
+      "case_id": "context_522:text_b",
+      "record_id": "context_522",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: The contractor is authorized to modify without approval."
+    },
+    {
+      "case_id": "context_522:text_para",
+      "record_id": "context_522",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the service owner. Policy: Approval is not required when the actor is the service owner and must modify this resource."
+    },
+    {
+      "case_id": "context_525:text_a",
+      "record_id": "context_525",
+      "slot": "text_a",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: For this resource, only the support analyst may carry out the requested operation."
+    },
+    {
+      "case_id": "context_525:text_b",
+      "record_id": "context_525",
+      "slot": "text_b",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_525:text_para",
+      "record_id": "context_525",
+      "slot": "text_para",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the support analyst. Policy: The requested operation on this resource may be carried out only by the support analyst."
+    },
+    {
+      "case_id": "context_531:text_a",
+      "record_id": "context_531",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the support analyst. Policy: Policy grants the support analyst permission to modify this resource."
+    },
+    {
+      "case_id": "context_531:text_b",
+      "record_id": "context_531",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the support analyst. Policy: Policy grants the contractor permission to modify this resource."
+    },
+    {
+      "case_id": "context_531:text_para",
+      "record_id": "context_531",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the support analyst. Policy: The support analyst role has permission under policy to modify this resource."
+    },
+    {
+      "case_id": "context_532:text_a",
+      "record_id": "context_532",
+      "slot": "text_a",
+      "state": "Request: Restart the production service. Context: actor is the incident commander. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_532:text_b",
+      "record_id": "context_532",
+      "slot": "text_b",
+      "state": "Request: Restart the production service. Context: actor is the incident commander. Policy: This operation is restricted to the support analyst role."
+    },
+    {
+      "case_id": "context_532:text_para",
+      "record_id": "context_532",
+      "slot": "text_para",
+      "state": "Request: Restart the production service. Context: actor is the incident commander. Policy: Only a person assigned the incident commander role can perform this operation."
+    },
+    {
+      "case_id": "context_534:text_a",
+      "record_id": "context_534",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: For this resource, the on-call engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_534:text_b",
+      "record_id": "context_534",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: For this resource, the service owner role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_534:text_para",
+      "record_id": "context_534",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the on-call engineer. Policy: The role authorized for this resource's operation is the on-call engineer."
+    },
+    {
+      "case_id": "context_536:text_a",
+      "record_id": "context_536",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: No role other than the contractor can approve this resource."
+    },
+    {
+      "case_id": "context_536:text_b",
+      "record_id": "context_536",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: No role other than the database administrator can approve this resource."
+    },
+    {
+      "case_id": "context_536:text_para",
+      "record_id": "context_536",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the contractor. Policy: The contractor alone is allowed to approve this resource."
+    },
+    {
+      "case_id": "context_537:text_a",
+      "record_id": "context_537",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: Only the support analyst may close this resource."
+    },
+    {
+      "case_id": "context_537:text_b",
+      "record_id": "context_537",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: Only the platform engineer may close this resource."
+    },
+    {
+      "case_id": "context_537:text_para",
+      "record_id": "context_537",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: support analyst is the sole role permitted to close this resource."
+    },
+    {
+      "case_id": "context_548:text_a",
+      "record_id": "context_548",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_548:text_b",
+      "record_id": "context_548",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: This operation is restricted to the security engineer role."
+    },
+    {
+      "case_id": "context_548:text_para",
+      "record_id": "context_548",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_550:text_a",
+      "record_id": "context_550",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_550:text_b",
+      "record_id": "context_550",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_550:text_para",
+      "record_id": "context_550",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the database administrator. Policy: The role authorized for this resource's operation is the database administrator."
+    },
+    {
+      "case_id": "context_555:text_a",
+      "record_id": "context_555",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: Policy grants the service owner permission to share this resource."
+    },
+    {
+      "case_id": "context_555:text_b",
+      "record_id": "context_555",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: Policy grants the incident commander permission to share this resource."
+    },
+    {
+      "case_id": "context_555:text_para",
+      "record_id": "context_555",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: The service owner role has permission under policy to share this resource."
+    },
+    {
+      "case_id": "context_557:text_a",
+      "record_id": "context_557",
+      "slot": "text_a",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: For this resource, only the support analyst may carry out the requested operation."
+    },
+    {
+      "case_id": "context_557:text_b",
+      "record_id": "context_557",
+      "slot": "text_b",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_557:text_para",
+      "record_id": "context_557",
+      "slot": "text_para",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: The requested operation on this resource may be carried out only by the support analyst."
+    },
+    {
+      "case_id": "context_568:text_a",
+      "record_id": "context_568",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: No role other than the contractor can share this resource."
+    },
+    {
+      "case_id": "context_568:text_b",
+      "record_id": "context_568",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: No role other than the security engineer can share this resource."
+    },
+    {
+      "case_id": "context_568:text_para",
+      "record_id": "context_568",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the contractor. Policy: The contractor alone is allowed to share this resource."
+    },
+    {
+      "case_id": "context_573:text_a",
+      "record_id": "context_573",
+      "slot": "text_a",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_573:text_b",
+      "record_id": "context_573",
+      "slot": "text_b",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_573:text_para",
+      "record_id": "context_573",
+      "slot": "text_para",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: The requested operation on this resource may be carried out only by the database administrator."
+    },
+    {
+      "case_id": "context_591:text_a",
+      "record_id": "context_591",
+      "slot": "text_a",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: The contractor may unlock this resource under current policy."
+    },
+    {
+      "case_id": "context_591:text_b",
+      "record_id": "context_591",
+      "slot": "text_b",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: The database administrator may unlock this resource under current policy."
+    },
+    {
+      "case_id": "context_591:text_para",
+      "record_id": "context_591",
+      "slot": "text_para",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: Current policy authorizes the contractor to unlock this resource."
+    },
+    {
+      "case_id": "context_592:text_a",
+      "record_id": "context_592",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: No role other than the support analyst can purge this resource."
+    },
+    {
+      "case_id": "context_592:text_b",
+      "record_id": "context_592",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: No role other than the on-call engineer can purge this resource."
+    },
+    {
+      "case_id": "context_592:text_para",
+      "record_id": "context_592",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: The support analyst alone is allowed to purge this resource."
+    },
+    {
+      "case_id": "context_594:text_a",
+      "record_id": "context_594",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: The platform engineer is authorized to purge without approval."
+    },
+    {
+      "case_id": "context_594:text_b",
+      "record_id": "context_594",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: The on-call engineer is authorized to purge without approval."
+    },
+    {
+      "case_id": "context_594:text_para",
+      "record_id": "context_594",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the platform engineer. Policy: Approval is not required when the actor is the platform engineer and must purge this resource."
+    },
+    {
+      "case_id": "context_612:text_a",
+      "record_id": "context_612",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_612:text_b",
+      "record_id": "context_612",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the on-call engineer. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_612:text_para",
+      "record_id": "context_612",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_627:text_a",
+      "record_id": "context_627",
+      "slot": "text_a",
+      "state": "Request: Restart the production service. Context: actor is the service owner. Policy: Policy grants the service owner permission to restart this resource."
+    },
+    {
+      "case_id": "context_627:text_b",
+      "record_id": "context_627",
+      "slot": "text_b",
+      "state": "Request: Restart the production service. Context: actor is the service owner. Policy: Policy grants the support analyst permission to restart this resource."
+    },
+    {
+      "case_id": "context_627:text_para",
+      "record_id": "context_627",
+      "slot": "text_para",
+      "state": "Request: Restart the production service. Context: actor is the service owner. Policy: The service owner role has permission under policy to restart this resource."
+    },
+    {
+      "case_id": "context_636:text_a",
+      "record_id": "context_636",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the service owner. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_636:text_b",
+      "record_id": "context_636",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the service owner. Policy: This operation is restricted to the platform engineer role."
+    },
+    {
+      "case_id": "context_636:text_para",
+      "record_id": "context_636",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the service owner. Policy: Only a person assigned the service owner role can perform this operation."
+    },
+    {
+      "case_id": "context_641:text_a",
+      "record_id": "context_641",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: Only the on-call engineer may revoke this resource."
+    },
+    {
+      "case_id": "context_641:text_b",
+      "record_id": "context_641",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: Only the database administrator may revoke this resource."
+    },
+    {
+      "case_id": "context_641:text_para",
+      "record_id": "context_641",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to revoke this resource."
+    },
+    {
+      "case_id": "context_645:text_a",
+      "record_id": "context_645",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_645:text_b",
+      "record_id": "context_645",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_645:text_para",
+      "record_id": "context_645",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_646:text_a",
+      "record_id": "context_646",
+      "slot": "text_a",
+      "state": "Request: Update the customer-facing status page. Context: actor is the contractor. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_646:text_b",
+      "record_id": "context_646",
+      "slot": "text_b",
+      "state": "Request: Update the customer-facing status page. Context: actor is the contractor. Policy: For this resource, the service owner role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_646:text_para",
+      "record_id": "context_646",
+      "slot": "text_para",
+      "state": "Request: Update the customer-facing status page. Context: actor is the contractor. Policy: The role authorized for this resource's operation is the contractor."
+    },
+    {
+      "case_id": "context_650:text_a",
+      "record_id": "context_650",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: The on-call engineer is authorized to share without approval."
+    },
+    {
+      "case_id": "context_650:text_b",
+      "record_id": "context_650",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: The security engineer is authorized to share without approval."
+    },
+    {
+      "case_id": "context_650:text_para",
+      "record_id": "context_650",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the on-call engineer. Policy: Approval is not required when the actor is the on-call engineer and must share this resource."
+    },
+    {
+      "case_id": "context_651:text_a",
+      "record_id": "context_651",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the platform engineer. Policy: Policy grants the platform engineer permission to deploy this resource."
+    },
+    {
+      "case_id": "context_651:text_b",
+      "record_id": "context_651",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the platform engineer. Policy: Policy grants the contractor permission to deploy this resource."
+    },
+    {
+      "case_id": "context_651:text_para",
+      "record_id": "context_651",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the platform engineer. Policy: The platform engineer role has permission under policy to deploy this resource."
+    },
+    {
+      "case_id": "context_652:text_a",
+      "record_id": "context_652",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: This operation is restricted to the support analyst role."
+    },
+    {
+      "case_id": "context_652:text_b",
+      "record_id": "context_652",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_652:text_para",
+      "record_id": "context_652",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: Only a person assigned the support analyst role can perform this operation."
+    },
+    {
+      "case_id": "context_667:text_a",
+      "record_id": "context_667",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: Policy grants the support analyst permission to close this resource."
+    },
+    {
+      "case_id": "context_667:text_b",
+      "record_id": "context_667",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: Policy grants the platform engineer permission to close this resource."
+    },
+    {
+      "case_id": "context_667:text_para",
+      "record_id": "context_667",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: The support analyst role has permission under policy to close this resource."
+    },
+    {
+      "case_id": "context_687:text_a",
+      "record_id": "context_687",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: The service owner may share this resource under current policy."
+    },
+    {
+      "case_id": "context_687:text_b",
+      "record_id": "context_687",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: The security engineer may share this resource under current policy."
+    },
+    {
+      "case_id": "context_687:text_para",
+      "record_id": "context_687",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the service owner. Policy: Current policy authorizes the service owner to share this resource."
+    },
+    {
+      "case_id": "context_692:text_a",
+      "record_id": "context_692",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_692:text_b",
+      "record_id": "context_692",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_692:text_para",
+      "record_id": "context_692",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_701:text_a",
+      "record_id": "context_701",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: For this resource, only the support analyst may carry out the requested operation."
+    },
+    {
+      "case_id": "context_701:text_b",
+      "record_id": "context_701",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_701:text_para",
+      "record_id": "context_701",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: The requested operation on this resource may be carried out only by the support analyst."
+    },
+    {
+      "case_id": "context_702:text_a",
+      "record_id": "context_702",
+      "slot": "text_a",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_702:text_b",
+      "record_id": "context_702",
+      "slot": "text_b",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_702:text_para",
+      "record_id": "context_702",
+      "slot": "text_para",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the contractor. Policy: The role authorized for this resource's operation is the contractor."
+    },
+    {
+      "case_id": "context_713:text_a",
+      "record_id": "context_713",
+      "slot": "text_a",
+      "state": "Request: Restart the production service. Context: actor is the security engineer. Policy: Only the security engineer may restart this resource."
+    },
+    {
+      "case_id": "context_713:text_b",
+      "record_id": "context_713",
+      "slot": "text_b",
+      "state": "Request: Restart the production service. Context: actor is the security engineer. Policy: Only the support analyst may restart this resource."
+    },
+    {
+      "case_id": "context_713:text_para",
+      "record_id": "context_713",
+      "slot": "text_para",
+      "state": "Request: Restart the production service. Context: actor is the security engineer. Policy: security engineer is the sole role permitted to restart this resource."
+    },
+    {
+      "case_id": "context_715:text_a",
+      "record_id": "context_715",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the database administrator. Policy: Policy grants the database administrator permission to revoke this resource."
+    },
+    {
+      "case_id": "context_715:text_b",
+      "record_id": "context_715",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the database administrator. Policy: Policy grants the contractor permission to revoke this resource."
+    },
+    {
+      "case_id": "context_715:text_para",
+      "record_id": "context_715",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the database administrator. Policy: The database administrator role has permission under policy to revoke this resource."
+    },
+    {
+      "case_id": "context_726:text_a",
+      "record_id": "context_726",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the incident commander. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_726:text_b",
+      "record_id": "context_726",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the incident commander. Policy: For this resource, the database administrator role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_726:text_para",
+      "record_id": "context_726",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the incident commander. Policy: The role authorized for this resource's operation is the incident commander."
+    },
+    {
+      "case_id": "context_731:text_a",
+      "record_id": "context_731",
+      "slot": "text_a",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: Policy grants the database administrator permission to delete this resource."
+    },
+    {
+      "case_id": "context_731:text_b",
+      "record_id": "context_731",
+      "slot": "text_b",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: Policy grants the security engineer permission to delete this resource."
+    },
+    {
+      "case_id": "context_731:text_para",
+      "record_id": "context_731",
+      "slot": "text_para",
+      "state": "Request: Delete the archived customer record. Context: actor is the database administrator. Policy: The database administrator role has permission under policy to delete this resource."
+    },
+    {
+      "case_id": "context_735:text_a",
+      "record_id": "context_735",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: The incident commander may modify this resource under current policy."
+    },
+    {
+      "case_id": "context_735:text_b",
+      "record_id": "context_735",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: The contractor may modify this resource under current policy."
+    },
+    {
+      "case_id": "context_735:text_para",
+      "record_id": "context_735",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: Current policy authorizes the incident commander to modify this resource."
+    },
+    {
+      "case_id": "context_737:text_a",
+      "record_id": "context_737",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: Only the support analyst may revoke this resource."
+    },
+    {
+      "case_id": "context_737:text_b",
+      "record_id": "context_737",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: Only the contractor may revoke this resource."
+    },
+    {
+      "case_id": "context_737:text_para",
+      "record_id": "context_737",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: support analyst is the sole role permitted to revoke this resource."
+    },
+    {
+      "case_id": "context_740:text_a",
+      "record_id": "context_740",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: This operation is restricted to the service owner role."
+    },
+    {
+      "case_id": "context_740:text_b",
+      "record_id": "context_740",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_740:text_para",
+      "record_id": "context_740",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the service owner. Policy: Only a person assigned the service owner role can perform this operation."
+    },
+    {
+      "case_id": "context_742:text_a",
+      "record_id": "context_742",
+      "slot": "text_a",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_742:text_b",
+      "record_id": "context_742",
+      "slot": "text_b",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: For this resource, the contractor role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_742:text_para",
+      "record_id": "context_742",
+      "slot": "text_para",
+      "state": "Request: Modify the backup retention schedule. Context: actor is the incident commander. Policy: The role authorized for this resource's operation is the incident commander."
+    },
+    {
+      "case_id": "context_743:text_a",
+      "record_id": "context_743",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: The database administrator may initiate this resource under current policy."
+    },
+    {
+      "case_id": "context_743:text_b",
+      "record_id": "context_743",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: The security engineer may initiate this resource under current policy."
+    },
+    {
+      "case_id": "context_743:text_para",
+      "record_id": "context_743",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: Current policy authorizes the database administrator to initiate this resource."
+    },
+    {
+      "case_id": "context_777:text_a",
+      "record_id": "context_777",
+      "slot": "text_a",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: Only the support analyst may delete this resource."
+    },
+    {
+      "case_id": "context_777:text_b",
+      "record_id": "context_777",
+      "slot": "text_b",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: Only the security engineer may delete this resource."
+    },
+    {
+      "case_id": "context_777:text_para",
+      "record_id": "context_777",
+      "slot": "text_para",
+      "state": "Request: Delete the archived customer record. Context: actor is the support analyst. Policy: support analyst is the sole role permitted to delete this resource."
+    },
+    {
+      "case_id": "context_778:text_a",
+      "record_id": "context_778",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: The database administrator is authorized to initiate without approval."
+    },
+    {
+      "case_id": "context_778:text_b",
+      "record_id": "context_778",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: The security engineer is authorized to initiate without approval."
+    },
+    {
+      "case_id": "context_778:text_para",
+      "record_id": "context_778",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the database administrator. Policy: Approval is not required when the actor is the database administrator and must initiate this resource."
+    },
+    {
+      "case_id": "context_781:text_a",
+      "record_id": "context_781",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: For this resource, only the support analyst may carry out the requested operation."
+    },
+    {
+      "case_id": "context_781:text_b",
+      "record_id": "context_781",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_781:text_para",
+      "record_id": "context_781",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the support analyst. Policy: The requested operation on this resource may be carried out only by the support analyst."
+    },
+    {
+      "case_id": "context_783:text_a",
+      "record_id": "context_783",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the support analyst. Policy: The support analyst may initiate this resource under current policy."
+    },
+    {
+      "case_id": "context_783:text_b",
+      "record_id": "context_783",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the support analyst. Policy: The security engineer may initiate this resource under current policy."
+    },
+    {
+      "case_id": "context_783:text_para",
+      "record_id": "context_783",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the support analyst. Policy: Current policy authorizes the support analyst to initiate this resource."
+    },
+    {
+      "case_id": "context_792:text_a",
+      "record_id": "context_792",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the support analyst. Policy: No role other than the support analyst can share this resource."
+    },
+    {
+      "case_id": "context_792:text_b",
+      "record_id": "context_792",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the support analyst. Policy: No role other than the incident commander can share this resource."
+    },
+    {
+      "case_id": "context_792:text_para",
+      "record_id": "context_792",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the support analyst. Policy: The support analyst alone is allowed to share this resource."
+    },
+    {
+      "case_id": "context_795:text_a",
+      "record_id": "context_795",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: Policy grants the on-call engineer permission to approve this resource."
+    },
+    {
+      "case_id": "context_795:text_b",
+      "record_id": "context_795",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: Policy grants the service owner permission to approve this resource."
+    },
+    {
+      "case_id": "context_795:text_para",
+      "record_id": "context_795",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: The on-call engineer role has permission under policy to approve this resource."
+    },
+    {
+      "case_id": "context_822:text_a",
+      "record_id": "context_822",
+      "slot": "text_a",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: For this resource, the support analyst role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_822:text_b",
+      "record_id": "context_822",
+      "slot": "text_b",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: For this resource, the platform engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_822:text_para",
+      "record_id": "context_822",
+      "slot": "text_para",
+      "state": "Request: Close the active security investigation. Context: actor is the support analyst. Policy: The role authorized for this resource's operation is the support analyst."
+    },
+    {
+      "case_id": "context_825:text_a",
+      "record_id": "context_825",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the service owner. Policy: Only the service owner may approve this resource."
+    },
+    {
+      "case_id": "context_825:text_b",
+      "record_id": "context_825",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the service owner. Policy: Only the database administrator may approve this resource."
+    },
+    {
+      "case_id": "context_825:text_para",
+      "record_id": "context_825",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the service owner. Policy: service owner is the sole role permitted to approve this resource."
+    },
+    {
+      "case_id": "context_828:text_a",
+      "record_id": "context_828",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: This operation is restricted to the on-call engineer role."
+    },
+    {
+      "case_id": "context_828:text_b",
+      "record_id": "context_828",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: This operation is restricted to the database administrator role."
+    },
+    {
+      "case_id": "context_828:text_para",
+      "record_id": "context_828",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: Only a person assigned the on-call engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_835:text_a",
+      "record_id": "context_835",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: Policy grants the support analyst permission to rotate this resource."
+    },
+    {
+      "case_id": "context_835:text_b",
+      "record_id": "context_835",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: Policy grants the security engineer permission to rotate this resource."
+    },
+    {
+      "case_id": "context_835:text_para",
+      "record_id": "context_835",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the support analyst. Policy: The support analyst role has permission under policy to rotate this resource."
+    },
+    {
+      "case_id": "context_836:text_a",
+      "record_id": "context_836",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the database administrator. Policy: This operation is restricted to the database administrator role."
+    },
+    {
+      "case_id": "context_836:text_b",
+      "record_id": "context_836",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the database administrator. Policy: This operation is restricted to the security engineer role."
+    },
+    {
+      "case_id": "context_836:text_para",
+      "record_id": "context_836",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the database administrator. Policy: Only a person assigned the database administrator role can perform this operation."
+    },
+    {
+      "case_id": "context_845:text_a",
+      "record_id": "context_845",
+      "slot": "text_a",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_845:text_b",
+      "record_id": "context_845",
+      "slot": "text_b",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the incident commander. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_845:text_para",
+      "record_id": "context_845",
+      "slot": "text_para",
+      "state": "Request: Unlock the suspended employee account. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_849:text_a",
+      "record_id": "context_849",
+      "slot": "text_a",
+      "state": "Request: Disable the compromised user account. Context: actor is the on-call engineer. Policy: Only the on-call engineer may disable this resource."
+    },
+    {
+      "case_id": "context_849:text_b",
+      "record_id": "context_849",
+      "slot": "text_b",
+      "state": "Request: Disable the compromised user account. Context: actor is the on-call engineer. Policy: Only the incident commander may disable this resource."
+    },
+    {
+      "case_id": "context_849:text_para",
+      "record_id": "context_849",
+      "slot": "text_para",
+      "state": "Request: Disable the compromised user account. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to disable this resource."
+    },
+    {
+      "case_id": "context_861:text_a",
+      "record_id": "context_861",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: For this resource, only the support analyst may carry out the requested operation."
+    },
+    {
+      "case_id": "context_861:text_b",
+      "record_id": "context_861",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: For this resource, only the platform engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_861:text_para",
+      "record_id": "context_861",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the support analyst. Policy: The requested operation on this resource may be carried out only by the support analyst."
+    },
+    {
+      "case_id": "context_876:text_a",
+      "record_id": "context_876",
+      "slot": "text_a",
+      "state": "Request: Restore the latest database backup. Context: actor is the security engineer. Policy: This operation is restricted to the security engineer role."
+    },
+    {
+      "case_id": "context_876:text_b",
+      "record_id": "context_876",
+      "slot": "text_b",
+      "state": "Request: Restore the latest database backup. Context: actor is the security engineer. Policy: This operation is restricted to the incident commander role."
+    },
+    {
+      "case_id": "context_876:text_para",
+      "record_id": "context_876",
+      "slot": "text_para",
+      "state": "Request: Restore the latest database backup. Context: actor is the security engineer. Policy: Only a person assigned the security engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_894:text_a",
+      "record_id": "context_894",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: For this resource, the support analyst role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_894:text_b",
+      "record_id": "context_894",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: For this resource, the on-call engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_894:text_para",
+      "record_id": "context_894",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the support analyst. Policy: The role authorized for this resource's operation is the support analyst."
+    },
+    {
+      "case_id": "context_896:text_a",
+      "record_id": "context_896",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: No role other than the platform engineer can share this resource."
+    },
+    {
+      "case_id": "context_896:text_b",
+      "record_id": "context_896",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: No role other than the incident commander can share this resource."
+    },
+    {
+      "case_id": "context_896:text_para",
+      "record_id": "context_896",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: The platform engineer alone is allowed to share this resource."
+    },
+    {
+      "case_id": "context_901:text_a",
+      "record_id": "context_901",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the incident commander. Policy: For this resource, only the incident commander may carry out the requested operation."
+    },
+    {
+      "case_id": "context_901:text_b",
+      "record_id": "context_901",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the incident commander. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_901:text_para",
+      "record_id": "context_901",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the incident commander. Policy: The requested operation on this resource may be carried out only by the incident commander."
+    },
+    {
+      "case_id": "context_902:text_a",
+      "record_id": "context_902",
+      "slot": "text_a",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: For this resource, the platform engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_902:text_b",
+      "record_id": "context_902",
+      "slot": "text_b",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: For this resource, the incident commander role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_902:text_para",
+      "record_id": "context_902",
+      "slot": "text_para",
+      "state": "Request: Export the customer account data. Context: actor is the platform engineer. Policy: The role authorized for this resource's operation is the platform engineer."
+    },
+    {
+      "case_id": "context_916:text_a",
+      "record_id": "context_916",
+      "slot": "text_a",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: This operation is restricted to the platform engineer role."
+    },
+    {
+      "case_id": "context_916:text_b",
+      "record_id": "context_916",
+      "slot": "text_b",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: This operation is restricted to the contractor role."
+    },
+    {
+      "case_id": "context_916:text_para",
+      "record_id": "context_916",
+      "slot": "text_para",
+      "state": "Request: Revoke the temporary admin credential. Context: actor is the platform engineer. Policy: Only a person assigned the platform engineer role can perform this operation."
+    },
+    {
+      "case_id": "context_920:text_a",
+      "record_id": "context_920",
+      "slot": "text_a",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: No role other than the security engineer can disable this resource."
+    },
+    {
+      "case_id": "context_920:text_b",
+      "record_id": "context_920",
+      "slot": "text_b",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: No role other than the incident commander can disable this resource."
+    },
+    {
+      "case_id": "context_920:text_para",
+      "record_id": "context_920",
+      "slot": "text_para",
+      "state": "Request: Disable the compromised user account. Context: actor is the security engineer. Policy: The security engineer alone is allowed to disable this resource."
+    },
+    {
+      "case_id": "context_930:text_a",
+      "record_id": "context_930",
+      "slot": "text_a",
+      "state": "Request: Restore the latest database backup. Context: actor is the database administrator. Policy: The database administrator is authorized to restore without approval."
+    },
+    {
+      "case_id": "context_930:text_b",
+      "record_id": "context_930",
+      "slot": "text_b",
+      "state": "Request: Restore the latest database backup. Context: actor is the database administrator. Policy: The incident commander is authorized to restore without approval."
+    },
+    {
+      "case_id": "context_930:text_para",
+      "record_id": "context_930",
+      "slot": "text_para",
+      "state": "Request: Restore the latest database backup. Context: actor is the database administrator. Policy: Approval is not required when the actor is the database administrator and must restore this resource."
+    },
+    {
+      "case_id": "context_933:text_a",
+      "record_id": "context_933",
+      "slot": "text_a",
+      "state": "Request: Rotate the production API key. Context: actor is the service owner. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_933:text_b",
+      "record_id": "context_933",
+      "slot": "text_b",
+      "state": "Request: Rotate the production API key. Context: actor is the service owner. Policy: For this resource, only the security engineer may carry out the requested operation."
+    },
+    {
+      "case_id": "context_933:text_para",
+      "record_id": "context_933",
+      "slot": "text_para",
+      "state": "Request: Rotate the production API key. Context: actor is the service owner. Policy: The requested operation on this resource may be carried out only by the service owner."
+    },
+    {
+      "case_id": "context_937:text_a",
+      "record_id": "context_937",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: Only the on-call engineer may approve this resource."
+    },
+    {
+      "case_id": "context_937:text_b",
+      "record_id": "context_937",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: Only the database administrator may approve this resource."
+    },
+    {
+      "case_id": "context_937:text_para",
+      "record_id": "context_937",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the on-call engineer. Policy: on-call engineer is the sole role permitted to approve this resource."
+    },
+    {
+      "case_id": "context_942:text_a",
+      "record_id": "context_942",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_942:text_b",
+      "record_id": "context_942",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: For this resource, the on-call engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_942:text_para",
+      "record_id": "context_942",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the security engineer. Policy: The role authorized for this resource's operation is the security engineer."
+    },
+    {
+      "case_id": "context_952:text_a",
+      "record_id": "context_952",
+      "slot": "text_a",
+      "state": "Request: Approve the emergency production change. Context: actor is the security engineer. Policy: No role other than the security engineer can approve this resource."
+    },
+    {
+      "case_id": "context_952:text_b",
+      "record_id": "context_952",
+      "slot": "text_b",
+      "state": "Request: Approve the emergency production change. Context: actor is the security engineer. Policy: No role other than the database administrator can approve this resource."
+    },
+    {
+      "case_id": "context_952:text_para",
+      "record_id": "context_952",
+      "slot": "text_para",
+      "state": "Request: Approve the emergency production change. Context: actor is the security engineer. Policy: The security engineer alone is allowed to approve this resource."
+    },
+    {
+      "case_id": "context_955:text_a",
+      "record_id": "context_955",
+      "slot": "text_a",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: Policy grants the database administrator permission to purge this resource."
+    },
+    {
+      "case_id": "context_955:text_b",
+      "record_id": "context_955",
+      "slot": "text_b",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: Policy grants the contractor permission to purge this resource."
+    },
+    {
+      "case_id": "context_955:text_para",
+      "record_id": "context_955",
+      "slot": "text_para",
+      "state": "Request: Purge the expired access token. Context: actor is the database administrator. Policy: The database administrator role has permission under policy to purge this resource."
+    },
+    {
+      "case_id": "context_957:text_a",
+      "record_id": "context_957",
+      "slot": "text_a",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: For this resource, only the database administrator may carry out the requested operation."
+    },
+    {
+      "case_id": "context_957:text_b",
+      "record_id": "context_957",
+      "slot": "text_b",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: For this resource, only the service owner may carry out the requested operation."
+    },
+    {
+      "case_id": "context_957:text_para",
+      "record_id": "context_957",
+      "slot": "text_para",
+      "state": "Request: Quarantine the workstation after the alert. Context: actor is the database administrator. Policy: The requested operation on this resource may be carried out only by the database administrator."
+    },
+    {
+      "case_id": "context_958:text_a",
+      "record_id": "context_958",
+      "slot": "text_a",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: For this resource, the platform engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_958:text_b",
+      "record_id": "context_958",
+      "slot": "text_b",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_958:text_para",
+      "record_id": "context_958",
+      "slot": "text_para",
+      "state": "Request: Share the incident report with the vendor. Context: actor is the platform engineer. Policy: The role authorized for this resource's operation is the platform engineer."
+    },
+    {
+      "case_id": "context_960:text_a",
+      "record_id": "context_960",
+      "slot": "text_a",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the incident commander. Policy: No role other than the incident commander can deploy this resource."
+    },
+    {
+      "case_id": "context_960:text_b",
+      "record_id": "context_960",
+      "slot": "text_b",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the incident commander. Policy: No role other than the contractor can deploy this resource."
+    },
+    {
+      "case_id": "context_960:text_para",
+      "record_id": "context_960",
+      "slot": "text_para",
+      "state": "Request: Deploy the hotfix to production. Context: actor is the incident commander. Policy: The incident commander alone is allowed to deploy this resource."
+    },
+    {
+      "case_id": "context_974:text_a",
+      "record_id": "context_974",
+      "slot": "text_a",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: For this resource, the platform engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_974:text_b",
+      "record_id": "context_974",
+      "slot": "text_b",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: For this resource, the security engineer role is authorized for the requested operation."
+    },
+    {
+      "case_id": "context_974:text_para",
+      "record_id": "context_974",
+      "slot": "text_para",
+      "state": "Request: Initiate a failover for the primary database. Context: actor is the platform engineer. Policy: The role authorized for this resource's operation is the platform engineer."
+    }
+  ]
+}

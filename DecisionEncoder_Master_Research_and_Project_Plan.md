@@ -246,16 +246,15 @@ This reduces the chance that models simply memorize benchmark patterns.
 
 ## 13. Baseline Models
 
-Initial baseline categories:
+Required comparisons for DecisionFlip:
 
-1. MiniLM-L6
-2. BGE-small
-3. BGE-large
-4. BM25
-5. One generative LLM
-6. Optionally a calibrated typed-decision classifier such as Laya
+1. TF-IDF + logistic regression as a lexical-shortcut diagnostic, fit on the training portion of each split only.
+2. MiniLM-L6, BGE-small, and BGE-large with a fixed classifier probe; compare the frozen representations on identical splits.
+3. A typed-decision system such as Laya, with the complete request, context, and policy supplied as state. Report its base checkpoint separately from any checkpoint fine-tuned on DecisionFlip training data.
+4. One generative LLM given the complete request, context, and policy, with model revision and prompt pinned. Measure decision accuracy and flip consistency, not only workflow-level aggregate accuracy.
+5. During Phase 6, plain supervised fine-tuning of the same encoder, data, and compute budget is a required control for decision-focused training.
 
-The benchmark review recommends keeping the baseline set focused rather than adding models only for breadth.
+TF-IDF is not a peer architecture to Laya: it diagnoses whether lexical cues alone solve a category. Laya and the LLM test stronger typed/instruction-following decision systems; frozen embedding probes test what is accessible in the fixed representations. Every baseline must use the same locked test examples and report both aggregate decision accuracy and paired flip consistency.
 
 ---
 
@@ -396,6 +395,13 @@ We should experiment rather than commit in advance.
 - Default starting loss: **Multiple Negatives Ranking (in-batch negatives + explicit decision-critical hard negatives injected per batch)** — it is the standard, well-understood starting point in the sentence-transformers ecosystem and needs the least hyperparameter search (no margin to tune, unlike triplet loss).
 - Fixed run budget for the first pass: no more than 3-4 training configurations (e.g. MNR baseline, MNR + hard negatives, triplet with 1-2 margins) before moving to failure analysis, rather than an open-ended sweep.
 - Decision rule for moving on: if none of the first-pass configurations improve Flip Consistency over the best baseline by a pre-registered minimum margin, treat that as a genuine negative result (Section 31) rather than expanding the search — go back to failure analysis instead of adding more loss variants.
+
+**Pre-registration for the first training comparison (2026-10-01, before Phase 6).**
+- Primary endpoint: flip consistency on the locked, held-out-policy `context_policy` test set. Select the strongest non-decision-focused baseline on development data before opening the test set; always include plain supervised fine-tuning of the same encoder, on the same training examples and compute budget, as a required comparator.
+- Minimum improvement: decision-focused training must improve the primary endpoint by at least **5 percentage points absolute** over the stronger of those comparators, and the paired 95% confidence interval for the improvement, bootstrapped by held-out policy family, must exclude zero.
+- Guardrail: the trained model must not reduce flip consistency by more than **2 percentage points** on the locked scope test set relative to that comparator.
+- Analysis limits: keep test data locked until model/configuration choices are complete; report all pre-registered comparisons and failures; run no more than the existing 3-4 first-pass configurations. If these criteria are not met, stop training and return to failure analysis rather than expanding the search.
+- This is a proposed benchmark-specific threshold, not an observed result. Record the dataset version, split manifest, model/checkpoint revisions, and training configuration before the first run.
 
 ---
 

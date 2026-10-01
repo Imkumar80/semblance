@@ -24,6 +24,7 @@ Usage:
 """
 
 import argparse
+import importlib
 import json
 import math
 import random
@@ -38,16 +39,20 @@ import numpy as np
 # encoders
 # ---------------------------------------------------------------------------
 
+
 def make_encoder(name):
     if name == "hashing":  # bag-of-words smoke-test encoder, NOT a real baseline
+
         def enc(texts, dim=256):
             E = np.zeros((len(texts), dim))
             for i, t in enumerate(texts):
                 for tok in re.findall(r"[a-z0-9$#']+", t.lower()):
                     E[i, zlib.crc32(tok.encode()) % dim] += 1.0
             return E / (np.linalg.norm(E, axis=1, keepdims=True) + 1e-9)
+
         return enc
     from sentence_transformers import SentenceTransformer
+
     model = SentenceTransformer(name)
     return lambda texts: model.encode(texts, normalize_embeddings=True, batch_size=64)
 
@@ -71,7 +76,22 @@ def fmt(k, n):
 # grouped evaluation helpers
 # ---------------------------------------------------------------------------
 
+
 def evaluation_splits(records, split, n_folds=5, seed=13):
+    if split == "locked-policy-test":
+        missing = [record["id"] for record in records if "dataset_split" not in record]
+        if missing:
+            raise ValueError(
+                "locked-policy-test requires a dataset with a split manifest; regenerate it"
+            )
+        train = [record for record in records if record["dataset_split"] != "test"]
+        test = [record for record in records if record["dataset_split"] == "test"]
+        train_policies = {record.get("policy_id", record["family"]) for record in train}
+        test_policies = {record.get("policy_id", record["family"]) for record in test}
+        if train_policies & test_policies:
+            raise ValueError("locked test policy IDs overlap training/development IDs")
+        return [(train, test)] if train and test else []
+
     if split == "within-family":
         rng = random.Random(seed)
         grouped = defaultdict(list)
@@ -83,9 +103,17 @@ def evaluation_splits(records, split, n_folds=5, seed=13):
             for index, record in enumerate(group_records):
                 folds[index % n_folds].append(record)
         return [
-            ([record for index, fold in enumerate(folds) if index != held for record in fold],
-             folds[held])
-            for held in range(n_folds) if folds[held]
+            (
+                [
+                    record
+                    for index, fold in enumerate(folds)
+                    if index != held
+                    for record in fold
+                ],
+                folds[held],
+            )
+            for held in range(n_folds)
+            if folds[held]
         ]
 
     key_name = {
@@ -99,17 +127,28 @@ def evaluation_splits(records, split, n_folds=5, seed=13):
             raise ValueError(f"{split} requires {key_name!r} on every record")
     groups = sorted({record.get(key_name, record["family"]) for record in records})
     return [
-        ([record for record in records if record.get(key_name, record["family"]) != group],
-         [record for record in records if record.get(key_name, record["family"]) == group])
+        (
+            [
+                record
+                for record in records
+                if record.get(key_name, record["family"]) != group
+            ],
+            [
+                record
+                for record in records
+                if record.get(key_name, record["family"]) == group
+            ],
+        )
         for group in groups
     ]
 
 
-def bootstrap_auc_by_family(flips, paraphrases, records, roc_auc_score,
-                            n_bootstrap=1000, seed=17):
+def bootstrap_auc_by_cluster(
+    flips, paraphrases, records, roc_auc_score, n_bootstrap=1000, seed=17
+):
     grouped = defaultdict(list)
     for index, record in enumerate(records):
-        grouped[record["family"]].append(index)
+        grouped[record.get("policy_id", record["family"])].append(index)
     families = list(grouped.values())
     if not families:
         return {"low": float("nan"), "high": float("nan")}
@@ -118,7 +157,9 @@ def bootstrap_auc_by_family(flips, paraphrases, records, roc_auc_score,
     samples = []
     for _ in range(n_bootstrap):
         selected = rng.integers(0, len(families), size=len(families))
-        indices = [index for family_index in selected for index in families[family_index]]
+        indices = [
+            index for family_index in selected for index in families[family_index]
+        ]
         labels = np.r_[np.ones(len(indices)), np.zeros(len(indices))]
         scores = np.r_[paraphrases[indices], flips[indices]]
         samples.append(roc_auc_score(labels, scores))
@@ -126,10 +167,16 @@ def bootstrap_auc_by_family(flips, paraphrases, records, roc_auc_score,
     return {"low": float(low), "high": float(high)}
 
 
-def evaluate_classifier(records, feature_mode, split, emb, LogisticRegression,
-                        TfidfVectorizer):
-    results = {"decision_acc": 0, "n_decisions": 0,
-               "flip_consistency": 0, "n_pairs": 0, "failures": []}
+def evaluate_classifier(
+    records, feature_mode, split, emb, LogisticRegression, TfidfVectorizer
+):
+    results = {
+        "decision_acc": 0,
+        "n_decisions": 0,
+        "flip_consistency": 0,
+        "n_pairs": 0,
+        "failures": [],
+    }
     keys = ("text_a", "text_b", "text_para")
     label_keys = ("label_a", "label_b", "label_para")
 
@@ -147,7 +194,7 @@ def evaluate_classifier(records, feature_mode, split, emb, LogisticRegression,
         else:
             vectorizer = TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True)
             train_features = vectorizer.fit_transform(train_texts)
-            test_features = lambda record: vectorizer.transform(
+            test_features = lambda record, vectorizer=vectorizer: vectorizer.transform(
                 [record[key] for key in keys]
             )
 
@@ -155,23 +202,191 @@ def evaluate_classifier(records, feature_mode, split, emb, LogisticRegression,
         classifier.fit(train_features, train_labels)
         for record in test_records:
             predictions = classifier.predict(test_features(record))
-            correct = [prediction == record[label_key]
-                       for prediction, label_key in zip(predictions, label_keys)]
+            correct = [
+                prediction == record[label_key]
+                for prediction, label_key in zip(predictions, label_keys)
+            ]
             results["decision_acc"] += sum(correct)
             results["n_decisions"] += len(correct)
             flip_correct = correct[0] and correct[1]
             results["flip_consistency"] += int(flip_correct)
             results["n_pairs"] += 1
             if not flip_correct:
-                results["failures"].append({
-                    "category": record["category"], "id": record["id"],
-                    "system": feature_mode, "split": split,
-                    "text_a": record["text_a"], "text_b": record["text_b"],
-                    "prediction_a": str(predictions[0]),
-                    "prediction_b": str(predictions[1]),
-                    "label_a": record["label_a"], "label_b": record["label_b"],
-                })
+                results["failures"].append(
+                    {
+                        "category": record["category"],
+                        "id": record["id"],
+                        "system": feature_mode,
+                        "split": split,
+                        "text_a": record["text_a"],
+                        "text_b": record["text_b"],
+                        "prediction_a": str(predictions[0]),
+                        "prediction_b": str(predictions[1]),
+                        "label_a": record["label_a"],
+                        "label_b": record["label_b"],
+                    }
+                )
 
+    results["decision_acc"] /= max(results["n_decisions"], 1)
+    results["flip_consistency"] /= max(results["n_pairs"], 1)
+    return results
+
+
+def load_laya_agent(checkpoint):
+    try:
+        laya = importlib.import_module("laya")
+    except ImportError as exc:
+        raise RuntimeError("Laya evaluation requires `pip install laya`.") from exc
+
+    if checkpoint == "base":
+        return laya.load("convaiinnovations/laya")
+    return laya.load("convaiinnovations/laya", subfolder="typed-decisions")
+
+
+def evaluate_laya(records, split, checkpoint, agent, prediction_cache):
+
+    criteria = {
+        "ALLOW": "The stated policy permits the requested action.",
+        "DENY": "The stated policy forbids the requested action.",
+        "REQUIRE_APPROVAL": "The action requires approval under the stated policy.",
+    }
+    questions = {
+        "decision": {
+            "type": "choice",
+            "instructions": (
+                "Apply the request, actor context, and complete policy text in the "
+                "state. Select the decision required by that policy."
+            ),
+            "criteria": criteria,
+        }
+    }
+    predictions = {}
+    for text in sorted(
+        {record[key] for record in records for key in ("text_a", "text_b", "text_para")}
+    ):
+        if text not in prediction_cache:
+            result = agent.predict({"text": text}, questions)
+            prediction_cache[text] = str(result["answers"]["decision"]["choice"])
+        predictions[text] = prediction_cache[text]
+
+    results = {
+        "decision_acc": 0,
+        "n_decisions": 0,
+        "flip_consistency": 0,
+        "n_pairs": 0,
+        "failures": [],
+    }
+    for _, test_records in evaluation_splits(records, split):
+        for record in test_records:
+            predicted = [
+                predictions[record[key]] for key in ("text_a", "text_b", "text_para")
+            ]
+            actual = [record[key] for key in ("label_a", "label_b", "label_para")]
+            correct = [guess == label for guess, label in zip(predicted, actual)]
+            results["decision_acc"] += sum(correct)
+            results["n_decisions"] += len(correct)
+            flip_correct = correct[0] and correct[1]
+            results["flip_consistency"] += int(flip_correct)
+            results["n_pairs"] += 1
+            if not flip_correct:
+                results["failures"].append(
+                    {
+                        "category": record["category"],
+                        "id": record["id"],
+                        "system": f"laya-{checkpoint}",
+                        "split": split,
+                        "text_a": record["text_a"],
+                        "text_b": record["text_b"],
+                        "prediction_a": predicted[0],
+                        "prediction_b": predicted[1],
+                        "label_a": record["label_a"],
+                        "label_b": record["label_b"],
+                    }
+                )
+
+    results["decision_acc"] /= max(results["n_decisions"], 1)
+    results["flip_consistency"] /= max(results["n_pairs"], 1)
+    return results
+
+
+def write_llm_cases(records, path):
+    cases = []
+    for record in records:
+        if record["category"] != "context_policy":
+            continue
+        if record.get("dataset_split") != "test":
+            continue
+        for slot in ("text_a", "text_b", "text_para"):
+            cases.append(
+                {
+                    "case_id": f"{record['id']}:{slot}",
+                    "record_id": record["id"],
+                    "slot": slot,
+                    "state": record[slot],
+                }
+            )
+    payload = {
+        "system_prompt": (
+            "Apply the policy stated in the input. Decide whether the actor may "
+            "perform the requested action. Return exactly one label: ALLOW or DENY. "
+            "Do not infer policy rules that are not stated."
+        ),
+        "prediction_format": {
+            "<record_id>": {
+                "text_a": "ALLOW or DENY",
+                "text_b": "ALLOW or DENY",
+                "text_para": "ALLOW or DENY",
+            }
+        },
+        "cases": cases,
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+    return len(cases)
+
+
+def evaluate_external_predictions(records, predictions, split, system):
+    test_records = [
+        record for _, fold in evaluation_splits(records, split) for record in fold
+    ]
+    results = {
+        "decision_acc": 0,
+        "n_decisions": 0,
+        "flip_consistency": 0,
+        "n_pairs": 0,
+        "failures": [],
+    }
+    for record in test_records:
+        if record["id"] not in predictions:
+            raise ValueError(
+                f"Missing external predictions for record {record['id']!r}"
+            )
+        values = predictions[record["id"]]
+        prediction_keys = ("text_a", "text_b", "text_para")
+        label_keys = ("label_a", "label_b", "label_para")
+        predicted = [str(values[key]).strip().upper() for key in prediction_keys]
+        actual = [record[key] for key in label_keys]
+        correct = [guess == label for guess, label in zip(predicted, actual)]
+        results["decision_acc"] += sum(correct)
+        results["n_decisions"] += len(correct)
+        flip_correct = correct[0] and correct[1]
+        results["flip_consistency"] += int(flip_correct)
+        results["n_pairs"] += 1
+        if not flip_correct:
+            results["failures"].append(
+                {
+                    "category": record["category"],
+                    "id": record["id"],
+                    "system": system,
+                    "split": split,
+                    "text_a": record["text_a"],
+                    "text_b": record["text_b"],
+                    "prediction_a": predicted[0],
+                    "prediction_b": predicted[1],
+                    "label_a": actual[0],
+                    "label_b": actual[1],
+                }
+            )
     results["decision_acc"] /= max(results["n_decisions"], 1)
     results["flip_consistency"] /= max(results["n_pairs"], 1)
     return results
@@ -181,11 +396,15 @@ def evaluate_classifier(records, feature_mode, split, emb, LogisticRegression,
 # main
 # ---------------------------------------------------------------------------
 
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", default="pilot_v2.json")
     ap.add_argument("--model", default="all-MiniLM-L6-v2")
     ap.add_argument("--out", default="results_v2.json")
+    ap.add_argument("--laya-checkpoint", choices=("base", "typed-decisions"))
+    ap.add_argument("--export-llm-cases")
+    ap.add_argument("--llm-predictions")
     args = ap.parse_args()
 
     from sklearn.feature_extraction.text import TfidfVectorizer
@@ -195,6 +414,11 @@ def main():
     with open(args.data) as f:
         data = json.load(f)
     triples, controls = data["triples"], data["controls"]
+    if args.export_llm_cases:
+        count = write_llm_cases(triples, args.export_llm_cases)
+        print(f"Wrote {count} context-policy prompts -> {args.export_llm_cases}")
+        if not args.llm_predictions and not args.laya_checkpoint:
+            return
 
     texts = set()
     for t in triples:
@@ -227,56 +451,89 @@ def main():
     for t in triples:
         by_cat[t["category"]].append(t)
 
-    report = {"model": args.model, "control_mean": ctrl_mean, "categories": {},
-              "bootstrap_unit": "family"}
+    laya_agent = load_laya_agent(args.laya_checkpoint) if args.laya_checkpoint else None
+    laya_prediction_cache = {}
+    external_predictions = None
+    if args.llm_predictions:
+        with open(args.llm_predictions, encoding="utf-8") as f:
+            external_predictions = json.load(f)
+
+    report = {"model": args.model, "control_mean": ctrl_mean, "categories": {}}
     failures = []
 
     print(f"\nUnrelated-control mean cosine: {ctrl_mean:.3f} (n={len(ctrl)})")
     print("\n=== 1-3. Primary categories: similarity and cosine AUROC ===")
-    print(f"{'category':<22}{'n':>3} {'flip_cos':>9} {'para_cos':>9} {'flip_pct':>9}  "
-          f"{'flip>=para':<15}{'AUROC [family bootstrap 95% CI]':>34}")
+    print(
+        f"{'category':<22}{'n':>3} {'flip_cos':>9} {'para_cos':>9} {'flip_pct':>9}  "
+        f"{'flip>=para':<15}{'AUROC [cluster bootstrap 95% CI]':>34}"
+    )
     for cat, ts in by_cat.items():
         fc = np.array([emb(t["text_a"]) @ emb(t["text_b"]) for t in ts])
         pc = np.array([emb(t["text_a"]) @ emb(t["text_para"]) for t in ts])
         fails = int(np.sum(fc >= pc))
         y = np.r_[np.ones(len(pc)), np.zeros(len(fc))]  # 1 = same decision
         auroc = float(roc_auc_score(y, np.r_[pc, fc]))
-        auc_ci = bootstrap_auc_by_family(fc, pc, ts, roc_auc_score)
+        auc_ci = bootstrap_auc_by_cluster(fc, pc, ts, roc_auc_score)
         pcts = [pct(x) for x in fc]
         if cat != "numerical_threshold":
-            print(f"{cat:<22}{len(ts):>3} {fc.mean():>9.3f} {pc.mean():>9.3f} "
-                  f"{np.mean(pcts):>9.2f}  {fmt(fails, len(ts)):<15}"
-                  f"{auroc:.2f} [{auc_ci['low']:.2f},{auc_ci['high']:.2f}]")
+            print(
+                f"{cat:<22}{len(ts):>3} {fc.mean():>9.3f} {pc.mean():>9.3f} "
+                f"{np.mean(pcts):>9.2f}  {fmt(fails, len(ts)):<15}"
+                f"{auroc:.2f} [{auc_ci['low']:.2f},{auc_ci['high']:.2f}]"
+            )
         report["categories"][cat] = {
             "role": "calibration" if cat == "numerical_threshold" else "primary",
-            "n": len(ts), "flip_cos_mean": float(fc.mean()), "para_cos_mean": float(pc.mean()),
+            "n": len(ts),
+            "flip_cos_mean": float(fc.mean()),
+            "para_cos_mean": float(pc.mean()),
             "flip_percentile_mean": float(np.mean(pcts)),
-            "margin_fail": fails, "cos_auroc": auroc,
-            "cos_auroc_family_bootstrap_95ci": auc_ci,
+            "margin_fail": fails,
+            "cos_auroc": auroc,
+            "cos_auroc_cluster_bootstrap_95ci": auc_ci,
+            "cos_auroc_bootstrap_cluster": "policy_id"
+            if all("policy_id" in t for t in ts)
+            else "family",
         }
         for t, a, b in zip(ts, fc, pc):
             if a >= b:
-                failures.append({"category": cat, "system": "cosine_margin",
-                                 "id": t["id"], "text_a": t["text_a"],
-                                 "text_b": t["text_b"],
-                                 "detail": f"flip_cos={a:.3f} para_cos={b:.3f}"})
+                failures.append(
+                    {
+                        "category": cat,
+                        "system": "cosine_margin",
+                        "id": t["id"],
+                        "text_a": t["text_a"],
+                        "text_b": t["text_b"],
+                        "detail": f"flip_cos={a:.3f} para_cos={b:.3f}",
+                    }
+                )
 
     if "numerical_threshold" in by_cat:
         numeric = report["categories"]["numerical_threshold"]
-        print("\nNumerical threshold (calibration only): "
-              f"n={numeric['n']}, AUROC={numeric['cos_auroc']:.2f}, "
-              f"family-bootstrap 95% CI="
-              f"[{numeric['cos_auroc_family_bootstrap_95ci']['low']:.2f},"
-              f"{numeric['cos_auroc_family_bootstrap_95ci']['high']:.2f}]")
+        print(
+            "\nNumerical threshold (calibration only): "
+            f"n={numeric['n']}, AUROC={numeric['cos_auroc']:.2f}, "
+            f"cluster-bootstrap 95% CI="
+            f"[{numeric['cos_auroc_cluster_bootstrap_95ci']['low']:.2f},"
+            f"{numeric['cos_auroc_cluster_bootstrap_95ci']['high']:.2f}]"
+        )
 
     print("\n=== 4. Decision probes: embedding vs TF-IDF ===")
     print("Paired records are kept intact; each fold tests A, B, and the paraphrase.")
     for cat, ts in by_cat.items():
         if cat == "tool_function":
             continue
-        print(f"\n[{cat}]" + (" (calibration only)" if cat == "numerical_threshold" else ""))
+        print(
+            f"\n[{cat}]"
+            + (" (calibration only)" if cat == "numerical_threshold" else "")
+        )
         cat_results = {}
-        for split in ("within-family", "heldout-family"):
+        if cat in {"scope", "context_policy"}:
+            split_names = ("within-family", "heldout-template", "heldout-policy")
+            if all("dataset_split" in record for record in ts):
+                split_names += ("locked-policy-test",)
+        else:
+            split_names = ("within-family", "heldout-family")
+        for split in split_names:
             cat_results[split] = {}
             for feature_mode in ("embedding", "tfidf"):
                 scores = evaluate_classifier(
@@ -286,10 +543,44 @@ def main():
                     key: value for key, value in scores.items() if key != "failures"
                 }
                 failures.extend(scores["failures"])
-                print(f"  {split:<16} {feature_mode:<10} "
-                      f"decision={scores['decision_acc']:.3f} "
-                      f"flip={scores['flip_consistency']:.3f} "
-                      f"(n={scores['n_pairs']})")
+                print(
+                    f"  {split:<16} {feature_mode:<10} "
+                    f"decision={scores['decision_acc']:.3f} "
+                    f"flip={scores['flip_consistency']:.3f} "
+                    f"(n={scores['n_pairs']})"
+                )
+            if laya_agent is not None:
+                scores = evaluate_laya(
+                    ts, split, args.laya_checkpoint, laya_agent, laya_prediction_cache
+                )
+                cat_results[split][f"laya_{args.laya_checkpoint}"] = {
+                    key: value for key, value in scores.items() if key != "failures"
+                }
+                failures.extend(scores["failures"])
+                print(
+                    f"  {split:<16} {'laya':<10} "
+                    f"decision={scores['decision_acc']:.3f} "
+                    f"flip={scores['flip_consistency']:.3f} "
+                    f"(n={scores['n_pairs']})"
+                )
+            if (
+                external_predictions is not None
+                and cat == "context_policy"
+                and split == "locked-policy-test"
+            ):
+                scores = evaluate_external_predictions(
+                    ts, external_predictions, split, "external_llm"
+                )
+                cat_results[split]["external_llm"] = {
+                    key: value for key, value in scores.items() if key != "failures"
+                }
+                failures.extend(scores["failures"])
+                print(
+                    f"  {split:<16} {'external LLM':<14} "
+                    f"decision={scores['decision_acc']:.3f} "
+                    f"flip={scores['flip_consistency']:.3f} "
+                    f"(n={scores['n_pairs']})"
+                )
         report["categories"][cat]["decision_probes"] = cat_results
 
     if "tool_function" in by_cat:
@@ -301,10 +592,16 @@ def main():
             correct_b = emb(record["text_b"]) @ desc_b > emb(record["text_b"]) @ desc_a
             rank_ok += int(correct_a and correct_b)
             if not (correct_a and correct_b):
-                failures.append({"category": "tool_function", "system": "embedding_rank",
-                                 "id": record["id"], "text_a": record["text_a"],
-                                 "text_b": record["text_b"],
-                                 "detail": f"a_ok={bool(correct_a)} b_ok={bool(correct_b)}"})
+                failures.append(
+                    {
+                        "category": "tool_function",
+                        "system": "embedding_rank",
+                        "id": record["id"],
+                        "text_a": record["text_a"],
+                        "text_b": record["text_b"],
+                        "detail": f"a_ok={bool(correct_a)} b_ok={bool(correct_b)}",
+                    }
+                )
         report["categories"]["tool_function"]["embedding_rank_flip_consistency"] = (
             rank_ok / max(len(ts), 1)
         )
@@ -317,9 +614,18 @@ def main():
         category_failures = failures_by_category[cat]
         print(f"\n[{cat}] {len(category_failures)} failures")
         for failure in category_failures:
-            print(f"  ({failure.get('split', 'cosine_or_rank')}/"
-                  f"{failure['system']}) {failure['id']}: "
-                  f"{failure['text_a']} -> {failure['text_b']}")
+            detail = failure.get("detail")
+            if "prediction_a" in failure:
+                detail = (
+                    f"pred={failure['prediction_a']}/{failure['prediction_b']} "
+                    f"gold={failure['label_a']}/{failure['label_b']}"
+                )
+            print(
+                f"  ({failure.get('split', 'cosine_or_rank')}/"
+                f"{failure['system']}) {failure['id']}: "
+                f"{failure['text_a']} -> {failure['text_b']}"
+                + (f" | {detail}" if detail else "")
+            )
     report["n_failures"] = len(failures)
     report["failures_by_category"] = {
         cat: len(category_failures)
@@ -329,8 +635,10 @@ def main():
     with open(args.out, "w") as f:
         json.dump(report, f, indent=2, default=float)
     print(f"\nResults -> {args.out}")
-    print("\nInterpret these as pilot results; family counts, not just example counts, "
-          "limit generalization claims.")
+    print(
+        "\nInterpret these as pilot results; family counts, not just example counts, "
+        "limit generalization claims."
+    )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,306 @@
+{
+  "model": "BAAI/bge-large-en-v1.5",
+  "control_mean": 0.4827748044087993,
+  "categories": {
+    "numerical_threshold": {
+      "role": "calibration",
+      "n": 72,
+      "flip_cos_mean": 0.9068671012122517,
+      "para_cos_mean": 0.9296422444957231,
+      "flip_percentile_mean": 0.9811024993469797,
+      "margin_fail": 6,
+      "cos_auroc": 0.7075617283950617,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 0.595486111111111,
+        "high": 0.85570987654321
+      },
+      "cos_auroc_bootstrap_cluster": "family",
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 216,
+            "flip_consistency": 1.0,
+            "n_pairs": 72
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 216,
+            "flip_consistency": 1.0,
+            "n_pairs": 72
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 0.9814814814814815,
+            "n_decisions": 216,
+            "flip_consistency": 0.9444444444444444,
+            "n_pairs": 72
+          },
+          "tfidf": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 216,
+            "flip_consistency": 0.0,
+            "n_pairs": 72
+          }
+        }
+      }
+    },
+    "scope": {
+      "role": "primary",
+      "n": 42,
+      "flip_cos_mean": 0.8957501500897737,
+      "para_cos_mean": 0.8854220766087955,
+      "flip_percentile_mean": 0.973884380019498,
+      "margin_fail": 27,
+      "cos_auroc": 0.4138321995464852,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 0.19386337868480727,
+        "high": 0.6014880952380952
+      },
+      "cos_auroc_bootstrap_cluster": "policy_id",
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 0.9682539682539683,
+            "n_decisions": 126,
+            "flip_consistency": 0.9047619047619048,
+            "n_pairs": 42
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 126,
+            "flip_consistency": 1.0,
+            "n_pairs": 42
+          }
+        },
+        "heldout-template": {
+          "embedding": {
+            "decision_acc": 0.9603174603174603,
+            "n_decisions": 126,
+            "flip_consistency": 0.8809523809523809,
+            "n_pairs": 42
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 126,
+            "flip_consistency": 1.0,
+            "n_pairs": 42
+          }
+        },
+        "heldout-policy": {
+          "embedding": {
+            "decision_acc": 0.8174603174603174,
+            "n_decisions": 126,
+            "flip_consistency": 0.4523809523809524,
+            "n_pairs": 42
+          },
+          "tfidf": {
+            "decision_acc": 0.8095238095238095,
+            "n_decisions": 126,
+            "flip_consistency": 0.42857142857142855,
+            "n_pairs": 42
+          }
+        },
+        "locked-policy-test": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 18,
+            "flip_consistency": 1.0,
+            "n_pairs": 6
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 18,
+            "flip_consistency": 1.0,
+            "n_pairs": 6
+          }
+        }
+      }
+    },
+    "permission": {
+      "role": "primary",
+      "n": 320,
+      "flip_cos_mean": 0.7920922635298544,
+      "para_cos_mean": 0.9647508613817468,
+      "flip_percentile_mean": 0.8769915372080185,
+      "margin_fail": 0,
+      "cos_auroc": 1.0,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 1.0,
+        "high": 1.0
+      },
+      "cos_auroc_bootstrap_cluster": "family",
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 960,
+            "flip_consistency": 1.0,
+            "n_pairs": 320
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 960,
+            "flip_consistency": 1.0,
+            "n_pairs": 320
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 960,
+            "flip_consistency": 1.0,
+            "n_pairs": 320
+          },
+          "tfidf": {
+            "decision_acc": 0.675,
+            "n_decisions": 960,
+            "flip_consistency": 0.025,
+            "n_pairs": 320
+          }
+        }
+      }
+    },
+    "action": {
+      "role": "primary",
+      "n": 30,
+      "flip_cos_mean": 0.7961967977716077,
+      "para_cos_mean": 0.9584048180461954,
+      "flip_percentile_mean": 0.880757492026436,
+      "margin_fail": 0,
+      "cos_auroc": 1.0,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 0.9999999999999999,
+        "high": 1.0
+      },
+      "cos_auroc_bootstrap_cluster": "family",
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          }
+        },
+        "heldout-family": {
+          "embedding": {
+            "decision_acc": 1.0,
+            "n_decisions": 90,
+            "flip_consistency": 1.0,
+            "n_pairs": 30
+          },
+          "tfidf": {
+            "decision_acc": 0.6666666666666666,
+            "n_decisions": 90,
+            "flip_consistency": 0.0,
+            "n_pairs": 30
+          }
+        }
+      }
+    },
+    "tool_function": {
+      "role": "primary",
+      "n": 36,
+      "flip_cos_mean": 0.9358510452584424,
+      "para_cos_mean": 0.9635815738325149,
+      "flip_percentile_mean": 0.9894633050899974,
+      "margin_fail": 1,
+      "cos_auroc": 0.9104938271604939,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 0.7656250000000001,
+        "high": 0.9923469387755103
+      },
+      "cos_auroc_bootstrap_cluster": "family",
+      "embedding_rank_flip_consistency": 0.9166666666666666
+    },
+    "context_policy": {
+      "role": "primary",
+      "n": 1000,
+      "flip_cos_mean": 0.9848041181426638,
+      "para_cos_mean": 0.9910472618091242,
+      "flip_percentile_mean": 0.9992573621551726,
+      "margin_fail": 203,
+      "cos_auroc": 0.780957,
+      "cos_auroc_cluster_bootstrap_95ci": {
+        "low": 0.7551649553880068,
+        "high": 0.8061466868158305
+      },
+      "cos_auroc_bootstrap_cluster": "policy_id",
+      "decision_probes": {
+        "within-family": {
+          "embedding": {
+            "decision_acc": 0.9763333333333334,
+            "n_decisions": 3000,
+            "flip_consistency": 0.929,
+            "n_pairs": 1000
+          },
+          "tfidf": {
+            "decision_acc": 0.9993333333333333,
+            "n_decisions": 3000,
+            "flip_consistency": 0.998,
+            "n_pairs": 1000
+          }
+        },
+        "heldout-template": {
+          "embedding": {
+            "decision_acc": 0.926,
+            "n_decisions": 3000,
+            "flip_consistency": 0.784,
+            "n_pairs": 1000
+          },
+          "tfidf": {
+            "decision_acc": 0.7936666666666666,
+            "n_decisions": 3000,
+            "flip_consistency": 0.588,
+            "n_pairs": 1000
+          }
+        },
+        "heldout-policy": {
+          "embedding": {
+            "decision_acc": 0.9753333333333334,
+            "n_decisions": 3000,
+            "flip_consistency": 0.926,
+            "n_pairs": 1000
+          },
+          "tfidf": {
+            "decision_acc": 0.999,
+            "n_decisions": 3000,
+            "flip_consistency": 0.997,
+            "n_pairs": 1000
+          }
+        },
+        "locked-policy-test": {
+          "embedding": {
+            "decision_acc": 0.9791666666666666,
+            "n_decisions": 384,
+            "flip_consistency": 0.9375,
+            "n_pairs": 128
+          },
+          "tfidf": {
+            "decision_acc": 0.9973958333333334,
+            "n_decisions": 384,
+            "flip_consistency": 0.9921875,
+            "n_pairs": 128
+          }
+        }
+      }
+    }
+  },
+  "n_failures": 1501,
+  "failures_by_category": {
+    "numerical_threshold": 82,
+    "scope": 83,
+    "tool_function": 4,
+    "context_policy": 990,
+    "permission": 312,
+    "action": 30
+  }
+}

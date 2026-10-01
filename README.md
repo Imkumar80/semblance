@@ -32,6 +32,26 @@ python eval_harness.py --pairs pilot_pairs.json --model all-MiniLM-L6-v2
 
 The eval harness requires network access to huggingface.co to download model weights — run it locally, not in a restricted sandbox.
 
+## DecisionFlip v3 experiment
+
+The v2 generator writes explicit template/policy IDs and deterministic group-level train/dev/test assignments. The 1,000-example setting applies per category where combinations exist; finite categories can produce fewer examples. Scope and context-policy evaluation reports within-family, held-out-template, held-out-policy, and locked-policy-test results. Numerical results are calibration-only.
+
+```powershell
+cd .\decisionflip
+python .\generate_pilot_v2.py --n-per-category 1000 --out .\pilot_v3_large.json
+python .\eval_v2.py --data .\pilot_v3_large.json --model BAAI/bge-small-en-v1.5 --out .\results_bge_small_v3.json
+python .\eval_v2.py --data .\pilot_v3_large.json --model BAAI/bge-large-en-v1.5 --out .\results_bge_large_v3.json
+```
+
+TF-IDF/logistic regression is included as a lexical diagnostic. To additionally run Laya, install its package and pass either `--laya-checkpoint base` or `--laya-checkpoint typed-decisions`; this downloads the selected checkpoint. To test another LLM, export only the locked context-policy test cases, have the model return the requested `record_id`/label JSON, then evaluate those predictions:
+
+```powershell
+python .\eval_v2.py --data .\pilot_v3_large.json --export-llm-cases .\context_policy_llm_cases.json
+python .\eval_v2.py --data .\pilot_v3_large.json --model hashing --llm-predictions .\llm_predictions.json --out .\results_llm.json
+```
+
+The family/policy bootstrap intervals reflect the small number of independent groups; they are not substitutes for a larger human-reviewed test set. The Phase 6 success threshold and matched plain-fine-tuning comparator are preregistered in the research plan's Section 18.
+
 ## Read first
 
 `DecisionEncoder_Master_Research_and_Project_Plan.md` — Section 16 (Critical First Experiment) and Section 38 (Guiding Principle) explain what "done" looks like before any training happens.
