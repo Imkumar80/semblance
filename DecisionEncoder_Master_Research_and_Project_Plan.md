@@ -14,7 +14,7 @@ The project has two connected tracks:
 
 2. **System track — DecisionEncoder**
    - If the benchmark reveals a real weakness, develop a compact encoder specialized for functional compatibility, uncertainty, and abstention.
-   - Apply it to ToolRouter, EvidenceGuard, and PolicyGate.
+   - Apply it to ToolRouter and PolicyGate.
    - Build an efficient retrieval → reranking → decision runtime.
 
 The project is deliberately hypothesis-driven. We will not assume that existing models fail, and we will not assume that a new architecture is necessary. The first scientific objective is to measure the problem.
@@ -115,11 +115,11 @@ We define explicit rules and generate examples around those rules. Labels come f
 
 ### B. Existing datasets
 
-The original DecisionEncoder plan identifies ToolBench/function-calling traces for ToolRouter, FEVER/MNLI/ANLI/RAGTruth-style data for EvidenceGuard, and synthetic policy data for PolicyGate.
+The original DecisionEncoder plan identifies ToolBench/function-calling traces for ToolRouter and synthetic policy data for PolicyGate.
 
 ### C. Realistic agent examples
 
-Construct/adapt realistic examples around tool selection, policy decisions, and evidence verification.
+Construct/adapt realistic examples around tool selection and policy decisions.
 
 ---
 
@@ -449,49 +449,6 @@ The original plan uses cached candidate embeddings and ANN-style retrieval follo
 
 ---
 
-## 21. EvidenceGuard
-
-Question:
-
-> Does the evidence support the claim?
-
-Conceptually:
-
-claim + evidence
-→ DecisionEncoder
-→ support / contradiction / insufficient / abstain
-
-The exact label scheme will follow the selected datasets and experiments.
-
-### EvidenceGuard pre-registration (2026-10-01; before model training)
-
-EvidenceGuard will ship a binary evidence-verification score: **SUPPORTED** (`1`) or
-**UNSUPPORTED** (`0`). Source-specific three-way labels are retained as `fine_label`
-(`SUPPORTS`, `REFUTES`, or `NOT_ENOUGH_INFO`) in every normalized data artifact. An
-abstention is not a third model class: it is a calibrated-probability threshold selected
-on development data only.
-
-- **Primary endpoint:** binary accuracy on the frozen, hand-checked multi-hop evaluation
-  set, scored using all retrieved chunks jointly in one context.
-- **Primary comparison:** joint-context scoring versus the same checkpoint scored once
-  per chunk with maximum support probability pooling. The two methods use the same frozen
-  examples, token budget, and dev-selected thresholds.
-- **Baselines:** HHEM-2.1, LettuceDetect (any flagged output token means unsupported),
-  MiniCheck, and a DeBERTa NLI baseline mapped to binary as entailment = supported and
-  contradiction/neutral = unsupported. LLM-AggreFact development data selects thresholds;
-  its test set and held-out RAGTruth test are report-only. Because LLM-AggreFact includes
-  RAGTruth, it will always be reported both in full and with RAGTruth-derived items removed.
-- **Success rule:** before the multi-hop test is opened, joint context must exceed
-  per-chunk max pooling by at least **5 percentage points absolute accuracy**, and the
-  paired 95% bootstrap confidence interval for that improvement must exclude zero. If it
-  does not, the result is reported as negative and the pipeline is not presented as having
-  established a multi-hop advantage.
-
-No benchmark, calibration, or latency value is to be written into project documentation
-unless the committed script that produced it is available.
-
----
-
 ## 22. PolicyGate
 
 Question:
@@ -560,9 +517,7 @@ The goal is to connect each component to a measurable improvement.
 
 After DecisionFlip, test whether the capability transfers to:
 
-- ToolRouter,
-- EvidenceGuard,
-- PolicyGate.
+- ToolRouter and PolicyGate.
 
 This prevents the work from being only a benchmark-specific optimization.
 
@@ -619,7 +574,7 @@ Identify causal contributions.
 Unseen templates, entities, values, domains.
 
 ### Phase 9 — Agent tasks
-ToolRouter, EvidenceGuard, PolicyGate.
+ToolRouter and PolicyGate.
 
 ### Phase 10 — Runtime
 Retrieval, reranking, batching, caching, latency.
@@ -718,7 +673,7 @@ If experiments show a meaningful improvement:
 DecisionEncoder
 + decision-focused training
 + DecisionFlip
-+ ToolRouter/EvidenceGuard/PolicyGate
++ ToolRouter/PolicyGate
 
 This could become a model/system paper.
 
@@ -782,7 +737,6 @@ Research Track
 System Track
 → DecisionEncoder
 → ToolRouter
-→ EvidenceGuard
 → PolicyGate
 → abstention
 → decision runtime
