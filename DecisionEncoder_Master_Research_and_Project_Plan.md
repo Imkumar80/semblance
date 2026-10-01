@@ -463,6 +463,33 @@ claim + evidence
 
 The exact label scheme will follow the selected datasets and experiments.
 
+### EvidenceGuard pre-registration (2026-10-01; before model training)
+
+EvidenceGuard will ship a binary evidence-verification score: **SUPPORTED** (`1`) or
+**UNSUPPORTED** (`0`). Source-specific three-way labels are retained as `fine_label`
+(`SUPPORTS`, `REFUTES`, or `NOT_ENOUGH_INFO`) in every normalized data artifact. An
+abstention is not a third model class: it is a calibrated-probability threshold selected
+on development data only.
+
+- **Primary endpoint:** binary accuracy on the frozen, hand-checked multi-hop evaluation
+  set, scored using all retrieved chunks jointly in one context.
+- **Primary comparison:** joint-context scoring versus the same checkpoint scored once
+  per chunk with maximum support probability pooling. The two methods use the same frozen
+  examples, token budget, and dev-selected thresholds.
+- **Baselines:** HHEM-2.1, LettuceDetect (any flagged output token means unsupported),
+  MiniCheck, and a DeBERTa NLI baseline mapped to binary as entailment = supported and
+  contradiction/neutral = unsupported. LLM-AggreFact development data selects thresholds;
+  its test set and held-out RAGTruth test are report-only. Because LLM-AggreFact includes
+  RAGTruth, it will always be reported both in full and with RAGTruth-derived items removed.
+- **Success rule:** before the multi-hop test is opened, joint context must exceed
+  per-chunk max pooling by at least **5 percentage points absolute accuracy**, and the
+  paired 95% bootstrap confidence interval for that improvement must exclude zero. If it
+  does not, the result is reported as negative and the pipeline is not presented as having
+  established a multi-hop advantage.
+
+No benchmark, calibration, or latency value is to be written into project documentation
+unless the committed script that produced it is available.
+
 ---
 
 ## 22. PolicyGate
