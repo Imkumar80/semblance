@@ -102,9 +102,11 @@ def main() -> None:
             raise SystemExit("Install the `datasets` package before loading VitaminC, or use --local.") from error
         items = []
         for hf_split, normalized_split in HF_SPLITS.items():
-            dataset = load_dataset("tals/vitaminc", split=hf_split)
+            # Schema inspection must not materialize a 100K+ row split locally.
+            dataset = load_dataset("tals/vitaminc", split=hf_split, streaming=args.show_columns)
             if args.show_columns:
-                print(hf_split, dataset.column_names, dataset[0])
+                first_row = next(iter(dataset))
+                print(hf_split, sorted(first_row), first_row)
                 return
             items.extend(convert(dataset, normalized_split))
 

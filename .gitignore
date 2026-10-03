@@ -3,3 +3,4 @@ __pycache__/
 pilot_results.json
 .venv/
 *.egg-info/
+decisionencoder/evidenceguard/data/vitaminc_norm.jsonl
