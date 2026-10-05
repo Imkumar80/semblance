@@ -1,0 +1,34 @@
+{
+  "language": "en",
+  "direction_pairs": [
+    ["increased", "decreased"],
+    ["increase", "decrease"],
+    ["rose", "fell"],
+    ["rise", "fall"],
+    ["grew", "shrank"],
+    ["growth", "decline"],
+    ["approved", "rejected"],
+    ["before", "after"],
+    ["more than", "less than"],
+    ["above", "below"],
+    ["gained", "declined"],
+    ["won", "lost"],
+    ["higher", "lower"],
+    ["improved", "worsened"],
+    ["expanded", "contracted"]
+  ],
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
+}

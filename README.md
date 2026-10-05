@@ -13,7 +13,10 @@ semblance/
 │   ├── generate_pilot.py    # rule-based pilot pair generator
 │   ├── pilot_pairs.json     # generated pilot set (committed for reproducibility)
 │   └── eval_harness.py      # Section 16 critical-first-experiment harness
-└── decisionencoder/                                       # system track: the model (empty for now)
+└── decisionencoder/                                       # system track: EvidenceGuard model and data pipeline
+    ├── modeling.py          # ModernBERT binary groundedness classifier
+    ├── train.py             # JSONL manifest trainer (run as a module)
+    └── evidenceguard/data/  # normalization, synthesis, and leakage-checked manifests
 ```
 
 ## Status
@@ -51,6 +54,27 @@ python .\eval_v2.py --data .\pilot_v3_large.json --model hashing --llm-predictio
 ```
 
 The family/policy bootstrap intervals reflect the small number of independent groups; they are not substitutes for a larger human-reviewed test set. The Phase 6 success threshold and matched plain-fine-tuning comparator are preregistered in the research plan's Section 18.
+
+## EvidenceGuard training
+
+EvidenceGuard data preparation and model training live under `decisionencoder/`. The
+VitaminC multi-chunk generator creates synthetic paired two-chunk examples; review its
+report and `review_note` fields before treating those examples as benchmark-quality labels.
+The manifest composer samples exact component proportions without replacement and rejects
+train/evaluation overlap.
+
+From the repository root, a bounded CPU smoke test can be run with:
+
+```powershell
+python -m decisionencoder.train `
+  --manifest .\decisionencoder\evidenceguard\data\train_manifest.jsonl `
+  --out .\decisionencoder\models\evidenceguard_smoke `
+  --epochs 1 --batch-size 2 --max-length 128 --limit-train-rows 4 --device cpu
+```
+
+Use a CUDA-enabled environment for full training; `--device auto` selects CUDA when
+available. See `decisionencoder/evidenceguard/BUILD_PLAN.md` for data provenance, split,
+and licensing safeguards.
 
 ## Read first
 
