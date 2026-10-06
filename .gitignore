@@ -1,10 +1,30 @@
+# Python bytecode, test/type/lint caches, and coverage output
 __pycache__/
 *.pyc
-pilot_results.json
 .venv/
+.tox/
 *.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Generated experiment reports
+pilot_results.json
+decisionencoder/evidenceguard/distractor_results.json
+
+# Locally generated datasets and model checkpoints
 decisionencoder/evidenceguard/data/vitaminc_norm.jsonl
 decisionencoder/evidenceguard/data/hard_negatives.jsonl
+decisionencoder/evidenceguard/data/hard_negatives.with_entities.jsonl
 decisionencoder/evidenceguard/data/ragtruth_raw/
 decisionencoder/evidenceguard/data/ragtruth_train.jsonl
 decisionencoder/evidenceguard/data/ragtruth_train_clean.jsonl
@@ -15,6 +35,7 @@ decisionencoder/evidenceguard/data/synthetic_multichunk_report.json
 decisionencoder/evidenceguard/data/multichunk_prepared.jsonl
 decisionencoder/evidenceguard/data/train_manifest.jsonl
 decisionencoder/evidenceguard/data/train_manifest_smoke_140.jsonl
+decisionencoder/evidenceguard/data/distractor_eval_pilot_*.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_train.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_train_clean.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_report.json

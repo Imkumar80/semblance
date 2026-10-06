@@ -64,6 +64,51 @@ abstention is a threshold decision, not a training label.
 - `data/synthesize_vitaminc_multichunk.py` creates paired, same-page two-chunk examples
   from supported VitaminC train facts. Its generated claims and missing-evidence negatives
   are synthetic and require semantic review; it is augmentation, not a frozen benchmark.
+- `data/build_distractor_eval.py` creates nested 0/1/2/4/6/8 BM25-ranked distractor
+  conditions with evidence at the beginning, middle, or end. It requires test-only anchors
+  and a train-only distractor pool from disjoint sources. Every generated row remains
+  `needs_review`; a human must confirm that distractors do not change the gold label and
+  annotate `decision_evidence_indices` (the chunk indexes required to determine the label),
+  then explicitly set `review_status` to `approved` before evaluation.
+- `evaluate_distractor.py` compares joint-context scoring, per-chunk maximum support
+  probability, and BM25-top-4 then joint scoring. It reports per-condition accuracy and
+  paired, source-group-level bootstrap intervals, plus BM25 decision-evidence recall/complete
+  retention. It refuses unapproved or non-test rows and fails rather than silently
+  truncating an overlength context. Use the same checkpoint, fixed threshold, and token
+  budget across methods; choose thresholds on development data only, never on this test set.
+
+### Distractor experiment protocol
+
+Build a candidate set only after a frozen test-anchor manifest exists. The reviewed
+`data/multichunk_train_reviewed.jsonl` file is labeled `train` and must not be repurposed
+as test anchors. Supply a separate train-only pool whose sources do not overlap the test
+anchors:
+
+```powershell
+python -m decisionencoder.evidenceguard.data.build_distractor_eval `
+  --anchors .\decisionencoder\evidenceguard\data\multihop_test_anchors.jsonl `
+  --distractors .\decisionencoder\evidenceguard\data\train_distractor_pool.jsonl `
+  --out .\decisionencoder\evidenceguard\data\distractor_eval_needs_review.jsonl
+```
+
+Review every emitted context, remove/replace any chunk that supports or contradicts the
+claim, check the inherited label, annotate the required evidence chunk indexes for the
+decision, and set `review_status` to `approved`. Then evaluate a checkpoint
+trained without any anchor/test source:
+
+```powershell
+python -m decisionencoder.evidenceguard.evaluate_distractor `
+  --manifest .\decisionencoder\evidenceguard\data\distractor_eval_approved.jsonl `
+  --model .\decisionencoder\models\evidenceguard `
+  --max-length 2048 `
+  --out .\decisionencoder\evidenceguard\distractor_results.json
+```
+
+The current reviewed 50-row multi-chunk file is train data, and there is no locked
+multi-hop test manifest or EvidenceGuard checkpoint yet. Consequently, the pipeline is
+implemented but there are no valid model results to report. Generated stress variants
+are candidate evaluation data, not gold-labeled automatically: adding text can change
+support, contradiction, or answerability, so manual review is mandatory.
 
 ## Current local training artifacts
 
