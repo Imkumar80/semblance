@@ -3,10 +3,33 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from decisionencoder.evidenceguard.data.prepare_ragtruth import prepare_ragtruth
+from decisionencoder.evidenceguard.data.prepare_ragtruth import (
+    _source_chunks,
+    prepare_ragtruth,
+)
 
 
 class PrepareRAGTruthTests(unittest.TestCase):
+    def test_source_chunks_preserves_nested_and_non_string_fields(self):
+        chunks = _source_chunks(
+            {
+                "name": "Cafe",
+                "hours": {"Monday": "9:00-17:00"},
+                "attributes": {"OutdoorSeating": True},
+                "review_info": [{"text": "Great service.", "stars": 5}],
+                "business_stars": 4.5,
+                "tags": ["coffee", "breakfast"],
+                "empty": None,
+            },
+            "fixture",
+        )
+        self.assertEqual(chunks[0], "name: Cafe")
+        self.assertIn('"Monday": "9:00-17:00"', chunks[1])
+        self.assertIn('"OutdoorSeating": true', chunks[2])
+        self.assertIn('"text": "Great service."', chunks[3])
+        self.assertEqual(chunks[4], "business_stars: 4.5")
+        self.assertEqual(chunks[5:], ["tags: coffee", "tags: breakfast"])
+
     def _write_jsonl(self, path, rows):
         path.write_text(
             "".join(json.dumps(row) + "\n" for row in rows),

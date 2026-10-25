@@ -54,7 +54,9 @@ abstention is a threshold decision, not a training label.
 - `data/prepare_ragtruth.py` preserves RAGTruth's official train/test split, filters records
   marked with response-quality issues, maps annotated hallucinations to unsupported rows,
   and removes training rows whose source group appears in the held-out split. Its output
-  retains source IDs and annotation spans for audit.
+  retains source IDs and annotation spans for audit. Structured source fields (including
+  nested attributes, hours, and review records) are serialized into evidence chunks rather
+  than silently discarded.
 - `data/prepare_train_component.py` extracts train rows from any normalized component and
   removes rows whose IDs, normalized claims, or sources overlap provided evaluation
   manifests. The manifest composer still fails on any remaining overlap.
@@ -62,29 +64,65 @@ abstention is a threshold decision, not a training label.
   binary cross-encoder and a manifest-only trainer. The trainer dynamically pads batches,
   uses SDPA and a 10% warmup schedule, and rejects non-train manifest rows.
 - `data/synthesize_vitaminc_multichunk.py` creates paired, same-page two-chunk examples
-  from supported VitaminC train facts. Its generated claims and missing-evidence negatives
-  are synthetic and require semantic review; it is augmentation, not a frozen benchmark.
+  from supported VitaminC train facts. It rejects triples whose claim predicates are
+  near-duplicates after masking numeric/date values, reducing false positives from
+  conflicting values. This lexical filter is not a semantic entailment check: generated
+  claims and missing-evidence negatives still require review and are augmentation, not a
+  frozen benchmark.
 - `data/build_distractor_eval.py` creates nested 0/1/2/4/6/8 BM25-ranked distractor
   conditions with evidence at the beginning, middle, or end. It requires test-only anchors
   and a train-only distractor pool from disjoint sources. Every generated row remains
   `needs_review`; a human must confirm that distractors do not change the gold label and
   annotate `decision_evidence_indices` (the chunk indexes required to determine the label),
   then explicitly set `review_status` to `approved` before evaluation.
+- `data/build_eval_candidates.py` makes balanced development and locked-test candidate
+  manifests from unused RAGTruth held-out-test sources. It excludes pilot sources and
+  assigns each source to only one split. Candidate rows are not approved automatically:
+  review their labels and chunks and annotate decision evidence before scoring. Use the
+  development split to select a decision threshold; keep the locked-test split unopened
+  until the threshold and procedure are fixed.
 - `evaluate_distractor.py` compares joint-context scoring, per-chunk maximum support
   probability, and BM25-top-4 then joint scoring. It reports per-condition accuracy and
-  paired, source-group-level bootstrap intervals, plus BM25 decision-evidence recall/complete
-  retention. It refuses unapproved or non-test rows and fails rather than silently
-  truncating an overlength context. Use the same checkpoint, fixed threshold, and token
-  budget across methods; choose thresholds on development data only, never on this test set.
+  paired, source-group-level bootstrap intervals, variant-level and anchor-mean ROC AUC,
+  plus BM25 decision-evidence recall/complete retention. Anchor-mean ROC AUC averages
+  probabilities across variants before ranking, so variants from one claim are not treated
+  as independent anchors. It refuses unapproved rows and enforces the requested split
+  (`development` or `test`); it fails rather than silently truncating an overlength context.
+  Use the same checkpoint and token budget across methods; choose thresholds on development
+  data only, never on the locked test set.
 
 ### Distractor experiment protocol
 
-Build a candidate set only after a frozen test-anchor manifest exists. The reviewed
-`data/multichunk_train_reviewed.jsonl` file is labeled `train` and must not be repurposed
-as test anchors. Supply a separate train-only pool whose sources do not overlap the test
-anchors:
+Build a candidate set only after a frozen test-anchor manifest exists. First select
+source-disjoint development and locked-test anchors, excluding any sources already used
+in the pilot:
 
 ```powershell
+python -m decisionencoder.evidenceguard.data.build_eval_candidates `
+  --anchors .\decisionencoder\evidenceguard\data\ragtruth_heldout_test.jsonl `
+  --pilot-manifest .\decisionencoder\evidenceguard\data\distractor_eval_pilot_raw.jsonl `
+  --out-dir .\decisionencoder\evidenceguard\data\expanded_eval_candidates
+```
+
+When only refreshing reviewed development candidates after a source-preparation fix, add
+`--split development`; this leaves the locked-test candidate file untouched.
+
+Review both generated files. Approve only rows whose label and context are correct and
+whose `decision_evidence_indices` have been annotated. Run the evaluator on the approved
+development manifest with `--split development` to select a threshold; freeze that
+threshold before evaluating the locked test manifest (default `--split test`). The
+reviewed
+`data/multichunk_train_reviewed.jsonl` file is labeled `train` and must not be repurposed
+as test anchors. For separate distractor stress testing, supply a train-only pool whose
+sources do not overlap the test anchors:
+
+```powershell
+python -m decisionencoder.evidenceguard.evaluate_distractor `
+  --manifest .\decisionencoder\evidenceguard\data\development_approved.jsonl `
+  --split development `
+  --model .\decisionencoder\models\evidenceguard `
+  --out .\decisionencoder\evidenceguard\development_results.json
+
 python -m decisionencoder.evidenceguard.data.build_distractor_eval `
   --anchors .\decisionencoder\evidenceguard\data\multihop_test_anchors.jsonl `
   --distractors .\decisionencoder\evidenceguard\data\train_distractor_pool.jsonl `

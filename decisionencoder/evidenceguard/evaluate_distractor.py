@@ -19,15 +19,19 @@ from decisionencoder.evidenceguard.data.build_distractor_eval import (
 from decisionencoder.modeling import ModernBertForGroundedness
 
 
-def load_reviewed_rows(path: Path) -> list[dict[str, Any]]:
+def load_reviewed_rows(path: Path, expected_split: str = "test") -> list[dict[str, Any]]:
+    if expected_split not in {"development", "test"}:
+        raise ValueError("expected_split must be 'development' or 'test'")
     rows = _read_jsonl(path)
     if not rows:
         raise ValueError(f"{path}: no evaluation rows found")
     seen_ids: set[str] = set()
     for index, row in enumerate(rows, 1):
         where = f"{path}:{index}"
-        if row.get("split") != "test":
-            raise ValueError(f"{where}: evaluator accepts split='test' rows only")
+        if row.get("split") != expected_split:
+            raise ValueError(
+                f"{where}: evaluator expects split={expected_split!r} rows only"
+            )
         if row.get("review_status") != "approved":
             raise ValueError(f"{where}: review_status must be 'approved'")
         if not isinstance(row.get("id"), str) or not row["id"].strip():
@@ -79,6 +83,44 @@ def binary_metrics(labels: list[int], predictions: list[int]) -> dict[str, float
         "recall": recall,
         "f1": 2 * precision * recall / max(precision + recall, 1e-12),
     }
+
+
+def roc_auc(labels: list[int], scores: list[float]) -> float | None:
+    if not labels or len(labels) != len(scores):
+        raise ValueError("labels and scores must have the same non-zero length")
+    if any(label not in (0, 1) for label in labels):
+        raise ValueError("ROC AUC labels must be binary (0 or 1)")
+    positive = [score for label, score in zip(labels, scores) if label == 1]
+    negative = [score for label, score in zip(labels, scores) if label == 0]
+    if not positive or not negative:
+        return None
+    return sum(
+        1.0 if pos > neg else 0.5 if pos == neg else 0.0
+        for pos in positive
+        for neg in negative
+    ) / (len(positive) * len(negative))
+
+
+def anchor_mean_scores(
+    rows: list[dict[str, Any]],
+) -> tuple[list[int], list[float]]:
+    by_anchor: dict[str, tuple[int, list[float]]] = {}
+    for row in rows:
+        anchor_id = row["anchor_id"]
+        label = row["label"]
+        if anchor_id in by_anchor:
+            anchor_label, scores = by_anchor[anchor_id]
+            if label != anchor_label:
+                raise ValueError(f"anchor {anchor_id!r} has inconsistent labels")
+            scores.append(row["probability"])
+        else:
+            by_anchor[anchor_id] = (label, [row["probability"]])
+    labels = []
+    means = []
+    for label, scores in by_anchor.values():
+        labels.append(label)
+        means.append(sum(scores) / len(scores))
+    return labels, means
 
 
 def paired_bootstrap_delta(
@@ -295,14 +337,22 @@ def summarize(
                 seed=seed,
             )
         by_condition.append(item)
-    return {
-        "overall": {
-            method: binary_metrics(
+    overall = {}
+    for method, rows in sorted(all_by_method.items()):
+        anchor_labels, anchor_scores = anchor_mean_scores(rows)
+        overall[method] = {
+            **binary_metrics(
                 [row["label"] for row in rows],
                 [row["prediction"] for row in rows],
-            )
-            for method, rows in sorted(all_by_method.items())
-        },
+            ),
+            "variant_level_roc_auc": roc_auc(
+                [row["label"] for row in rows],
+                [row["probability"] for row in rows],
+            ),
+            "anchor_mean_roc_auc": roc_auc(anchor_labels, anchor_scores),
+        }
+    return {
+        "overall": overall,
         "by_condition": by_condition,
     }
 
@@ -310,6 +360,12 @@ def summarize(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, required=True)
+    parser.add_argument(
+        "--split",
+        choices=("development", "test"),
+        default="test",
+        help="expected reviewed manifest split (test by default)",
+    )
     parser.add_argument("--model", required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
@@ -327,7 +383,7 @@ def main() -> None:
     if not 0.0 <= args.threshold <= 1.0:
         parser.error("--threshold must be between 0 and 1")
     try:
-        rows = load_reviewed_rows(args.manifest)
+        rows = load_reviewed_rows(args.manifest, expected_split=args.split)
         scorer = EvidenceGuardScorer(
             args.model,
             device_name=args.device,
@@ -337,6 +393,7 @@ def main() -> None:
         predictions = score_rows(rows, scorer, threshold=args.threshold)
         report = {
             "model": args.model,
+            "evaluation_split": args.split,
             "threshold": args.threshold,
             "max_length": args.max_length,
             "prefilter_k": args.prefilter_k,

@@ -55,10 +55,21 @@ def _source_chunks(source_info: Any, where: str) -> list[str]:
                 if isinstance(value, str) and value.strip():
                     chunks.append(f"{key}: {value.strip()}")
                 elif isinstance(value, list):
-                    chunks.extend(
-                        f"{key}: {item.strip()}"
-                        for item in value
-                        if isinstance(item, str) and item.strip()
+                    if all(isinstance(item, str) for item in value):
+                        chunks.extend(
+                            f"{key}: {item.strip()}"
+                            for item in value
+                            if item.strip()
+                        )
+                    elif value:
+                        chunks.append(
+                            f"{key}: "
+                            f"{json.dumps(value, ensure_ascii=False, sort_keys=True)}"
+                        )
+                elif value is not None:
+                    chunks.append(
+                        f"{key}: "
+                        f"{json.dumps(value, ensure_ascii=False, sort_keys=True)}"
                     )
             if not chunks:
                 chunks = [json.dumps(source_info, ensure_ascii=False, sort_keys=True)]

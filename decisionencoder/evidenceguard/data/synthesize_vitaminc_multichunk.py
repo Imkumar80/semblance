@@ -3,12 +3,79 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import hashlib
 import json
 import random
+import re
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
+
+
+_NUMBER_PATTERN = re.compile(
+    r"(?<![a-z])\d+(?:[.,]\d+)*(?:st|nd|rd|th)?"
+    r"(?:\s*[-–/]\s*\d+(?:[.,]\d+)*(?:st|nd|rd|th)?)*(?![a-z])",
+    re.IGNORECASE,
+)
+_MONTH_PATTERN = re.compile(
+    r"\b(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|"
+    r"jul(?:y)?|aug(?:ust)?|sep(?:tember)?|oct(?:ober)?|nov(?:ember)?|"
+    r"dec(?:ember)?)\b",
+    re.IGNORECASE,
+)
+_NUMBER_WORD_PATTERN = re.compile(
+    r"\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|"
+    r"twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|"
+    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|"
+    r"thousand|million|billion|first|second|third|fourth|fifth|sixth|"
+    r"seventh|eighth|ninth|tenth|eleventh|twelfth)\b",
+    re.IGNORECASE,
+)
+_CLAIM_SIMILARITY_LIMIT = 0.85
+
+
+def _claim_signature(claim: str) -> str:
+    """Normalize changing numeric/date values before comparing claim predicates."""
+    claim = _NUMBER_PATTERN.sub(" <value> ", claim.casefold())
+    claim = _MONTH_PATTERN.sub(" <month> ", claim)
+    claim = _NUMBER_WORD_PATTERN.sub(" <value> ", claim)
+    return " ".join(re.findall(r"[a-z]+|<value>|<month>", claim))
+
+
+def _claims_have_distinct_predicates(first: str, second: str) -> bool:
+    """Conservatively reject near-duplicate claims, including conflicting values."""
+    first_signature = _claim_signature(first)
+    second_signature = _claim_signature(second)
+    if not first_signature or not second_signature:
+        return False
+    similarity = max(
+        difflib.SequenceMatcher(
+            None, first_signature, second_signature, autojunk=False
+        ).ratio(),
+        difflib.SequenceMatcher(
+            None, second_signature, first_signature, autojunk=False
+        ).ratio(),
+    )
+    return similarity < _CLAIM_SIMILARITY_LIMIT
+
+
+def _select_distinct_facts(
+    facts: list[dict[str, Any]], rng: random.Random
+) -> list[dict[str, Any]] | None:
+    for _ in range(8):
+        shuffled = list(facts)
+        rng.shuffle(shuffled)
+        selected: list[dict[str, Any]] = []
+        for fact in shuffled:
+            if all(
+                _claims_have_distinct_predicates(fact["claim"], item["claim"])
+                for item in selected
+            ):
+                selected.append(fact)
+                if len(selected) == 3:
+                    return selected
+    return None
 
 
 def _read_records(path: Path) -> tuple[set[str], dict[str, list[dict[str, Any]]]]:
@@ -92,18 +159,22 @@ def make_examples(
         if source.casefold() not in evaluation_sources and len(facts) >= 3
     ]
     target_pairs = max_rows // 2
-    if len(candidates) < target_pairs:
-        raise ValueError(
-            f"requested {target_pairs} pairs but only {len(candidates)} train pages "
-            "have at least three distinct supported claims"
-        )
-
     rng = random.Random(seed)
     candidates.sort(key=lambda item: item[0].casefold())
-    selected = rng.sample(candidates, target_pairs)
+    compatible_candidates = [
+        (source, triple)
+        for source, facts in candidates
+        if (triple := _select_distinct_facts(facts, rng)) is not None
+    ]
+    if len(compatible_candidates) < target_pairs:
+        raise ValueError(
+            f"requested {target_pairs} pairs but only {len(compatible_candidates)} train "
+            "pages have three lexically distinct supported claims"
+        )
+
+    selected = rng.sample(compatible_candidates, target_pairs)
     examples = []
-    for index, (source, facts) in enumerate(selected):
-        first, second, distractor = rng.sample(facts, 3)
+    for index, (source, (first, second, distractor)) in enumerate(selected):
         combined_claim = _combine_claims(first["claim"], second["claim"])
         shared = {
             "source": source,
@@ -145,12 +216,15 @@ def make_examples(
             "hop_drop": target_pairs,
         },
         "candidate_train_pages": len(candidates),
+        "compatible_train_pages": len(compatible_candidates),
+        "rejected_predicate_overlap_pages": len(candidates) - len(compatible_candidates),
         "selected_train_pages": target_pairs,
         "evaluation_sources_excluded": len(evaluation_sources),
         "seed": seed,
         "warning": (
-            "Synthetic positives and missing-evidence negatives require review; "
-            "VitaminC support labels do not prove the composed claim or distractor semantics."
+            "Pairs with near-identical claim predicates after masking numeric/date values "
+            "are excluded, but this lexical filter cannot prove semantic compatibility. "
+            "Synthetic positives and missing-evidence negatives still require review."
         ),
     }
     return examples, report

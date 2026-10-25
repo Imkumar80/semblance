@@ -36,6 +36,10 @@ decisionencoder/evidenceguard/data/multichunk_prepared.jsonl
 decisionencoder/evidenceguard/data/train_manifest.jsonl
 decisionencoder/evidenceguard/data/train_manifest_smoke_140.jsonl
 decisionencoder/evidenceguard/data/distractor_eval_pilot_*.jsonl
+decisionencoder/evidenceguard/data/expanded_eval_candidates/
+decisionencoder/evidenceguard/data/repaired_v1/
+decisionencoder/evidenceguard/data/development_approved.jsonl
+decisionencoder/evidenceguard/data/locked_test_approved.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_train.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_train_clean.jsonl
 decisionencoder/evidenceguard/data/vitaminc_multichunk_report.json

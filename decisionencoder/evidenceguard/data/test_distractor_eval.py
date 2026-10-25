@@ -14,9 +14,11 @@ from decisionencoder.evidenceguard.data.build_distractor_eval import (
     select_unique_source_anchors,
 )
 from decisionencoder.evidenceguard.evaluate_distractor import (
+    anchor_mean_scores,
     binary_metrics,
     load_reviewed_rows,
     paired_bootstrap_delta,
+    roc_auc,
     score_rows,
 )
 
@@ -178,6 +180,22 @@ class DistractorEvalTests(unittest.TestCase):
         approved = load_reviewed_rows_from_data(rows)
         self.assertEqual(approved[0]["decision_evidence_indices"], [0, 1])
 
+    def test_evaluator_can_load_development_rows_without_accepting_them_as_test(self):
+        row = _anchor(split="development")
+        row.update(
+            {
+                "anchor_id": "test-anchor",
+                "review_status": "approved",
+                "distractor_count": 0,
+                "evidence_position": "none",
+                "decision_evidence_indices": [0, 1],
+            }
+        )
+        with self.assertRaisesRegex(ValueError, "expects split='test'"):
+            load_reviewed_rows_from_data([row])
+        loaded = load_reviewed_rows_from_data([row], expected_split="development")
+        self.assertEqual(loaded[0]["split"], "development")
+
     def test_reports_bm25_recall_for_required_decision_evidence(self):
         class FakeScorer:
             prefilter_k = 1
@@ -203,6 +221,19 @@ class DistractorEvalTests(unittest.TestCase):
     def test_metrics_and_paired_bootstrap_are_deterministic(self):
         metrics = binary_metrics([1, 0, 1], [1, 1, 0])
         self.assertAlmostEqual(metrics["accuracy"], 1 / 3)
+        self.assertEqual(roc_auc([1, 0], [0.8, 0.2]), 1.0)
+        self.assertEqual(roc_auc([1, 0], [0.2, 0.8]), 0.0)
+        self.assertEqual(roc_auc([1, 0], [0.5, 0.5]), 0.5)
+        self.assertIsNone(roc_auc([1, 1], [0.8, 0.2]))
+        labels, scores = anchor_mean_scores(
+            [
+                {"anchor_id": "positive", "label": 1, "probability": 0.8},
+                {"anchor_id": "positive", "label": 1, "probability": 0.6},
+                {"anchor_id": "negative", "label": 0, "probability": 0.4},
+            ]
+        )
+        self.assertEqual(labels, [1, 0])
+        self.assertEqual(scores, [0.7, 0.4])
         rows = []
         for index, (joint, chunk_max) in enumerate(((1, 0), (1, 0), (1, 0), (0, 1))):
             for method, prediction in (("joint", joint), ("chunk_max", chunk_max)):
@@ -222,7 +253,7 @@ class DistractorEvalTests(unittest.TestCase):
         self.assertEqual(first["paired_groups"], 2)
 
 
-def load_reviewed_rows_from_data(rows):
+def load_reviewed_rows_from_data(rows, expected_split="test"):
     from pathlib import Path
     import json
     import tempfile
@@ -230,7 +261,7 @@ def load_reviewed_rows_from_data(rows):
     with tempfile.TemporaryDirectory() as directory:
         path = Path(directory) / "eval.jsonl"
         path.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
-        return load_reviewed_rows(path)
+        return load_reviewed_rows(path, expected_split=expected_split)
 
 
 if __name__ == "__main__":
